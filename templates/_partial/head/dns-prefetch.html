@@ -1,0 +1,9 @@
+{# disqus #}
+{%- if config.DISQUS_ENABLED %}
+  <link rel="dns-prefetch" href="//disqus.com">
+  <link rel="dns-prefetch" href="//{{config.DISQUS_SHORT_NAME}}.disqus.com">
+{%- endif %}
+{%- if config.SUKA_COMMENT_USE == 'disqus' %}
+  <link rel="dns-prefetch" href="//disqus.com">
+  <link rel="dns-prefetch" href="//{{config.SUKA_COMMENT_DISQUS_SHORT_NAME}}.disqus.com">
+{%- endif %}
