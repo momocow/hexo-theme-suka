@@ -1,0 +1,4 @@
+{%- if config.DISQUS_ENABLED is True or config.SUKA_COMMENT_USE == 'disquz' %}
+  <link rel="dns-prefetch" href="//disqus.com">
+  <link rel="dns-prefetch" href="//<%= theme.comment.disqus.shortname %>.disqus.com">
+{%- endif %}
