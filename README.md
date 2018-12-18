@@ -7,6 +7,7 @@
 > Descending order, i.e., latest first.
 
 - 2018.12.18
+  - Rewrite test script via NodeJS Gulp.
   - Fix including wrong partial paths.
   - Fix `index.html`.
   - Add test script.

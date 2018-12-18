@@ -1,0 +1,33 @@
+{
+  "name": "veripress-theme-suka",
+  "version": "0.1.0",
+  "description": "Modern, powerful and simple theme ported from hexo-theme-suka.",
+  "scripts": {
+    "dev": "gulp dev",
+    "test": "echo Hello, Suka!"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/momocow/veripress-theme-suka.git"
+  },
+  "keywords": [
+    "veripress",
+    "theme",
+    "suka"
+  ],
+  "author": "MomoCow",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/momocow/veripress-theme-suka/issues"
+  },
+  "homepage": "https://github.com/momocow/veripress-theme-suka#readme",
+  "files": [
+    "static",
+    "templates"
+  ],
+  "devDependencies": {
+    "del": "^3.0.0",
+    "fancy-log": "^1.3.3",
+    "gulp": "^4.0.0"
+  }
+}
