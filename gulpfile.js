@@ -20,13 +20,20 @@ function cleanTestStatic () {
   })
 }
 
-function sync (file) {
-  log.info('Sync "%s"', path.basename(file))
+function sync (act, file) {
+  if (act === '-') {
+    log.info('\u001b[31m-\u001b[39m "%s"', path.basename(file))
 
-  return gulp.src(file, {
-    base: __dirname
-  })
-    .pipe(gulp.dest(TEST_DIR))
+    return del(path.resolve(TEST_DIR, path.relative(__dirname, file)))
+  } else if (act === '+' || act === '*') {
+    log.info('\u001b[%dm%s\u001b[39m "%s"',
+      act === '*' ? 33 : 32, act, path.basename(file))
+  
+    return gulp.src(file, {
+      base: __dirname
+    })
+      .pipe(gulp.dest(TEST_DIR))
+  }
 }
 
 function copyTemplates () {
@@ -88,9 +95,9 @@ function watchFiles () {
         usePolling: false
       }
     )
-      .on('change', sync)
-      .on('add', sync)
-      .on('unlink', sync)
+      .on('change', sync.bind(undefined, '*'))
+      .on('add', sync.bind(undefined, '+'))
+      .on('unlink', sync.bind(undefined, '-'))
       .on('close', resolve)
       .on('error', reject)
   
