@@ -82,7 +82,11 @@ function watchFiles () {
       [
         `${TEMPLATES_DIR}/**/*`,
         `${STATIC_DIR}/**/*`
-      ]
+      ],
+      {
+        useFsEvents: false,
+        usePolling: false
+      }
     )
       .on('change', sync)
       .on('add', sync)
