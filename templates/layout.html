@@ -2,43 +2,23 @@
 <html {%- if site.language %} lang="{{ site.language }}" {%- endif %}>
 <head>
   {% block head %}
-    {% include ['custom/head.html', '_partial/head/main.html'] ignore missing %}
+    {% include '_partial/head/main.html' %}
+    {% include ['custom/head.html', 'head.html'] ignore missing %}
   {% endblock %}
 </head>
 <body>
+  {%- block header %}
+    {%- include ['custom/header.html', 'header.html'] ignore missing %}
+  {%- endblock %}
 
-<div class="section">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="row">
-          <div class="col-md-12 site-header">
-            {% include ['custom/header.html', 'header.html'] ignore missing %}
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12 nav-container">
-            {% include ['custom/navbar.html', 'navbar.html'] ignore missing %}
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-8">
-        {% block body %}{% endblock %}
-      </div>
-      <div id="sidebar" class="col-md-4">
-        {% include ['custom/sidebar.html', 'sidebar.html'] ignore missing %}
-      </div>
-    </div>
-  </div>
-</div>
+  {%- block body %}{% endblock %}
 
-{% include ['custom/footer.html', 'footer.html'] ignore missing %}
+  {%- block footer %}
+    {%- include ['custom/footer.html', 'footer.html'] ignore missing %}
+  {%- endblock %}
 
-{% block foot %}
-  {% include ['custom/foot.html', 'foot.html'] ignore missing %}
-{% endblock %}
-
+  {%- block foot %}
+    {%- include ['custom/foot.html', 'foot.html'] ignore missing %}
+  {%- endblock %}
 </body>
 </html>

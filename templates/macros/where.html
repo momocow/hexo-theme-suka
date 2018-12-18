@@ -1,0 +1,17 @@
+{%- macro where() %}
+  {%- if entry %}
+    {%- if 'tags' in entry and 'categories' in entry %}
+      {%- set where = 'post' %}
+    {%- else %}
+      {%- set where = 'page' %}
+    {%- endif %}
+  {%- elif entries %}
+    {%- if archive_type %}
+      {%- set where = archive_type|lower %}
+    {%- else %}
+      {%- set where = 'index' %}
+    {%- endif %}
+  {%- else %}
+    {%- set where = '' %}
+  {%- endif %}{{ where }}
+{%- endmacro %}

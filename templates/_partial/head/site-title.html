@@ -1,0 +1,9 @@
+{%- from 'macros/where.html' import where with context %}
+{%- set here = where()|trim %}
+{{
+  '' if here is equalto 'index'
+    else entry.title if here is equalto 'post' or here is equalto 'page'
+    else '%s: %s' % (archive_type, archive_name)
+}}{{
+  site.title
+}}

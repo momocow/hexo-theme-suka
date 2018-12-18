@@ -1,1 +1,17 @@
 {% extends 'layout.html' %}
+
+{% block body %}
+  <div class="container">
+    <div class="main-container">
+      <main>
+        <div class="post-stream-container">
+          <!-- # Post List # -->
+          {%- for post in entries %}
+            {% include "_partial/post-entry.html" %}
+          {%- endfor %}
+        </div>
+      </main>
+      <!-- <%- partial('_partial/pagination') %> -->
+    </div>
+  </div>
+{% endblock %}

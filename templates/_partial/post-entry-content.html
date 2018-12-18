@@ -1,0 +1,30 @@
+{% if post.title|trim %}
+    <h2 class="h5 mb-0 card-header"><a class="card-title" href="{{ post.url }}">{{ post.title|trim }}</a></h2>
+{% endif %}
+
+<p class="mb-0 card-body">
+    {% if post.preview|trim %}
+      {{ post.preview|striptags|capitalize }}
+    {% else %}
+      {{ post.content|striptags|truncate(config.SUKA_POST_ENTRY_EXCERPT) }}
+    {% endif %}<a href="{{ post.url }}">{{ config.SUKA_READ_MORE }}</a>
+</p>
+
+
+<!-- Date & Category -->
+<div class="card-footer post-entry-info text-gray">
+    {% include '_partial/avatar.html' %}
+    <time>{{ post.created.strftime('%Y-%m-%d') }}</time>
+    {% if post.categories %}
+        <span class="suka-devide-dot"></span>
+        {# {%- list_categories(post.categories, {
+            show_count: false,
+            separator: '<span class="suka-devide-dot"></span>',
+            style: 'none'
+        }) %} #}
+    {% endif %}
+    {# {% if ( (theme.valine_counter.enable === true) && (theme.valine_counter.index_post_pv.enable === true) ) { %}
+        <span class="suka-devide-dot"></span>
+        {%- partial('_plugin/valine-counter/index_post', {}, {cache: theme.fragment_cache}) %}
+    {% } %} #}
+</div>

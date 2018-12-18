@@ -3,13 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 
 <!-- Title -->
-<title>{{
-  entry.title if entry
-    else "%s: %s" % (archive_type, archive_name) if archive_type and archive_name
-    else ""
-}}{{
-  site.title
-}}</title>
+<title>{% include '_partial/head/site-title.html' %}</title>
 
 <!-- favicon -->
 <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='img/suka-favicon.ico') }}">
