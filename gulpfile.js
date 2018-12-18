@@ -8,8 +8,6 @@ const TEMPLATES_DIR = 'templates'
 const STATIC_DIR = 'static'
 const TEST_DIR = 'test/themes/suka'
 
-const paths = new Set()
-
 function cleanTestTemplates () {
   return del(`${TEST_DIR}/${TEMPLATES_DIR}/**/*`, {
     cwd: __dirname
@@ -23,10 +21,7 @@ function cleanTestStatic () {
 }
 
 function sync (file) {
-  if (paths.has(file)) {
-    log.info('Sync "%s"', path.basename(file))
-  }
-  paths.add(file)
+  log.info('Sync "%s"', path.basename(file))
 
   return gulp.src(file, {
     base: __dirname
@@ -56,7 +51,7 @@ function startVeripressPreview () {
     ],
     {
       cwd: path.resolve(__dirname, 'test'),
-      stdio: 'inherit',
+      stdio: 'pipe',
       windowsHide: true
     }
   )
@@ -64,6 +59,19 @@ function startVeripressPreview () {
   process.on('SIGINT', () => {
     proc.kill('SIGINT')
   })
+
+  function logChunk (src, chunk) {
+    chunk.toString().split('\n').forEach(function (m) {
+      if (src === 'stdout') {
+        log.info('\u001b[32m%s\u001b[39m', m)
+      } else {
+        log.error('\u001b[31m%s\u001b[39m', m)
+      }
+    })
+  }
+
+  proc.stdout.on('data', logChunk.bind(undefined, 'stdout'))
+  proc.stderr.on('data', logChunk.bind(undefined, 'stderr'))
 
   return proc
 }
@@ -74,10 +82,7 @@ function watchFiles () {
       [
         `${TEMPLATES_DIR}/**/*`,
         `${STATIC_DIR}/**/*`
-      ],
-      {
-        ignoreInitial: false
-      }
+      ]
     )
       .on('change', sync)
       .on('add', sync)
@@ -92,7 +97,10 @@ function watchFiles () {
   })
 }
 
-const dev = gulp.parallel(watchFiles, startVeripressPreview)
+const dev = gulp.series(
+  gulp.parallel(makeStatic, makeTemplates),
+  gulp.parallel(watchFiles, startVeripressPreview)
+)
 
 async function listTask () {
   log.info('************************')
