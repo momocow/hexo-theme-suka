@@ -3,6 +3,14 @@
 
 > 🚧 WIP
 
+## Scripts
+```
+npm run dev
+```
+1. Prepare the test folder
+2. Start Veripress preview server
+3. Watch to sync file changes to the test folder.
+
 ## Changelog
 > Descending order, i.e., latest first.
 
