@@ -15,6 +15,16 @@ npm run dev
 > Descending order, i.e., latest first.
 
 - 2018.12.18
+  - Skip valine counter.
+  - Skip listing categories.
+  - Add `_partial/post-entry-content`.
+  - Add `_partial/post-entry`.
+  - Add config `SUKA_DATE_FORMAT`.
+  - Add config `SUKA_AVATAR`.
+  - Add config `SUKA_READ_MORE`.
+  - Add config `SUKA_POST_ENTRY_EXCERPT`.
+  - Rewrite `_partial/head/site-title`.
+  - Add macro `where`.
   - Rewrite test script via NodeJS Gulp.
   - Fix including wrong partial paths.
   - Fix `index.html`.
