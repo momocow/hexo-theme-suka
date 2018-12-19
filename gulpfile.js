@@ -7,6 +7,7 @@ const { spawn } = require('child_process')
 const TEMPLATES_DIR = 'templates'
 const STATIC_DIR = 'static'
 const TEST_DIR = 'test/themes/suka'
+const CONFIG_PY = 'test/config.py'
 
 function cleanTestTemplates () {
   return del(`${TEST_DIR}/${TEMPLATES_DIR}/**/*`, {
@@ -63,8 +64,27 @@ function startVeripressPreview () {
     }
   )
 
+  const watcher = gulp.watch(
+    CONFIG_PY,
+    {
+      useFsEvents: false,
+      usePolling: false
+    },
+    gulp.series(
+      function restartVeripressPreview () {
+        return new Promise(function (resolve) {
+          proc.on('exit', resolve)
+          proc.kill('SIGINT')
+          watcher.close()
+        })
+      },
+      startVeripressPreview
+    )
+  )
+
   process.on('SIGINT', () => {
     proc.kill('SIGINT')
+    watcher.close()
   })
 
   function logChunk (src, chunk) {
