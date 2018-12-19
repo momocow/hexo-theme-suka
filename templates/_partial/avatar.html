@@ -1,4 +1,6 @@
+{%- from 'helpers/config.html' import suka_config with context %}
+
 <img
   class="author-thumb lazyload"
-  data-src="{{ url_for('static', filename='img/default_avatar.png') }}"
+  data-src="{{ url_for('static', filename=suka_config.AVATAR) }}"
   alt="{{ site.author }}'s Avatar">

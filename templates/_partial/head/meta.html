@@ -1,3 +1,5 @@
+{%- from 'helpers/config.html' import suka_config with context %}
+
 <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
 <meta name="renderer" content="webkit">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
@@ -13,8 +15,8 @@
 <!-- Description -->
 <meta name="description" content="{{ site.subtitle }}">
 
-<!-- Keywords -->
-<!-- <meta name="keywords" content=""> -->
+<!-- Keywords . -->
+<meta name="keywords" content="{{ suka_config.KEYWORDS|join(',') }}">
 
 <!-- Disable Fucking Bloody Baidu Tranformation -->
 <meta http-equiv="Cache-Control" content="no-transform" />

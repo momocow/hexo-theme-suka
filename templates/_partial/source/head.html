@@ -1,0 +1,12 @@
+{%- from 'helpers/config.html' import suka_config with context %}
+{%- from 'helpers/here.html' import here with context %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='lib/spectre/spectre.min.css') }}">
+
+{% include '_partial/head/config-style.html' %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.min.css') }}">
+
+{%- if suka_config.comment.USE == 'disqusjs' and here == 'post' %}
+  {% include '_plugin/comment/disqusjs/common_head.html' %}
+{%- endif %}

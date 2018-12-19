@@ -1,0 +1,11 @@
+{%- from 'helpers/config.html' import suka_config with context %}
+
+{%- if suka_config.busuanzi.ENABLE %}
+  <!-- Busuanzi -->
+  {% include '_plugin/busuanzi/preload.html' %}
+{%- endif %}
+
+{%- if suka_config.hanabi.ENABLE %}
+  <!-- Hanabi -->
+  {% include '_plugin/highlight/hanabi/preload.html' %}
+{%- endif %}

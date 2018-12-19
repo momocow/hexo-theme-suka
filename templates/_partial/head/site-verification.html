@@ -1,0 +1,8 @@
+{%- from 'helpers/config.html' import suka_config with context %}
+
+{%- if suka_config.head.site_verification.GOOGLE %}
+    <meta name="google-site-verification" content="{{ suka_config.head.site_verification.GOOGLE }}" />
+{%- endif %}
+{%- if suka_config.head.site_verification.BAIDU %}
+    <meta name="baidu-site-verification" content="{{ suka_config.head.site_verification.BAIDU }}" />
+{%- endif %}

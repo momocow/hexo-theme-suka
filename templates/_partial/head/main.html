@@ -1,5 +1,23 @@
 <meta charset="utf-8">
+<!-- ### DNS Prefetch ### -->
 {% include '_partial/head/dns-prefetch.html' %}
+
+<!-- ### Preload ### -->
+{% include '_partial/source/preload.html' %}
+
+<!-- ### Meta & Title & Info ### -->
 {% include '_partial/head/meta.html' %}
+
+<!-- ### Import File ### -->
+{% include '_partial/source/head.html' %}
+
+<!-- ### Site Verification ### -->
+{% include '_partial/head/site-verification.html' %}
+
+<!-- ### RSS ### -->
+{% include '_partial/head/rss.html' %}
+
+<!-- ### WebApp ### -->
+{% include '_partial/head/webapp.html' %}
 
 <link rel="canonical" href="{{ site.root_url + request.path.replace('index.html', '') }}">

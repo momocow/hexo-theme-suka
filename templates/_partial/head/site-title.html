@@ -1,9 +1,8 @@
-{%- from 'macros/where.html' import where with context %}
-{%- set here = where()|trim %}
-{{
-  '' if here is equalto 'index'
-    else entry.title if here is equalto 'post' or here is equalto 'page'
-    else '%s: %s' % (archive_type, archive_name)
-}}{{
-  site.title
-}}
+{%- from 'helpers/here.html' import here with context %}
+{%- if here == 'index' %}
+  {%- set current_page = '' %}
+{%- elif here == 'post' or here == 'page' %}
+  {%- set current_page = entry.title %}
+{%- else %}
+  {%- set current_page = '%s: %s' % (archive_type, archive_name) %}
+{%- endif %}{{ current_page }}{{ site.title }}
