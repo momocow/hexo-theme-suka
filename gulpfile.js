@@ -74,7 +74,7 @@ function startVeripressPreview () {
       function restartVeripressPreview () {
         return new Promise(function (resolve) {
           proc.on('exit', resolve)
-          proc.kill('SIGINT')
+          proc.kill('SIGTERM')
           watcher.close()
         })
       },
@@ -83,7 +83,7 @@ function startVeripressPreview () {
   )
 
   process.on('SIGINT', () => {
-    proc.kill('SIGINT')
+    proc.kill('SIGTERM')
     watcher.close()
   })
 
