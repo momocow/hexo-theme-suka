@@ -24,3 +24,4 @@ SUKA_POST_ENTRY_EXCERPT = 120
 SUKA_READ_MORE = 'READ MORE'
 SUKA_AVATAR = 'img/default_avatar.png'
 SUKA_DATE_FORMAT = '%Y-%m-%d'
+SUKA_UIUX_SLOGAN = 'My Slogan'

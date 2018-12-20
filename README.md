@@ -11,7 +11,9 @@ Hexo theme: [hexo-theme-suka](https://github.com/SukkaW/hexo-theme-suka)
     - [Supported Comment Plugins](#supported-comment-plugins)
   - [Development](#development)
     - [Differences against hexo-theme-suka](#differences-against-hexo-theme-suka)
+    - [Additional functions to Veripress](#additional-functions-to-veripress)
     - [Scripts](#scripts)
+    - [Todo](#todo)
 
 ## Configuration
 
@@ -52,6 +54,11 @@ Options for `SUKA_COMMENT_USE`
 ### Differences against hexo-theme-suka
 - Only Atom RSS is supported.
 
+### Additional functions to Veripress
+- Post thumbnail.
+- Post description.
+- Gallery page.
+
 ### Scripts
 
 ```
@@ -62,3 +69,6 @@ npm run dev
 2. Start Veripress preview server
 3. Watch to sync file changes to the test folder.
 4. Watch config.py to restart the server.
+
+### Todo
+- [ ] Support spoiler alert 💥
