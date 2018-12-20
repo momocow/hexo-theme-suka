@@ -1,8 +1,9 @@
 {%- from 'helpers/config.html' import suka_config with context %}
+{%- from 'helpers/url.html' import home_url with context %}
 
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="application-name" content="{{ site.title }}">
-<meta name="msapplication-starturl" content="{{ suka_config.INDEX_URL }}">
+<meta name="msapplication-starturl" content="{{ home_url }}">
 {%- if suka_config.head.COLOR %}
     <meta name="msapplication-navbutton-color" content="{{ suka_config.head.COLOR }}">
 {%- endif %}

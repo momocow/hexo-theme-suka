@@ -1,8 +1,0 @@
-{%- from 'helpers/here.html' import here with context %}
-{%- if here == 'index' %}
-  {%- set current_page = '' %}
-{%- elif here == 'post' or here == 'page' %}
-  {%- set current_page = entry.title %}
-{%- else %}
-  {%- set current_page = '%s: %s' % (archive_type, archive_name) %}
-{%- endif %}{{ current_page }}{{ site.title }}

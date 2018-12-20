@@ -1,3 +1,6 @@
+{%- from 'helpers/here.html' import here with context -%}
+{%- from 'helpers/config.html' import suka_config with context -%}
+
 <!DOCTYPE html>
 <html {%- if site.language %} lang="{{ site.language }}" {%- endif %}>
 <head>
@@ -7,18 +10,29 @@
   {% endblock %}
 </head>
 <body>
-  {%- block header %}
-    {%- include ['custom/header.html', 'header.html'] ignore missing %}
-  {%- endblock %}
+  {%- if here == 'page' and entry.layout == 'gallery' %}
+    {%- block gallery %}
+      {%- include '_page/gallery.html' %}
+    {%- endblock %}
+  {%- else %}
+    {%- if suka_config.comment.USE == 'facebook' and here == 'post' %}
+      <!-- Facebook SDK -->
+      {%- include '_plugin/comment/facebook/common_head' %}
+    {%- endif %}
 
-  {%- block body %}{% endblock %}
+    {%- block header %}
+      {%- include ['custom/header.html', '_partial/header.html'] ignore missing %}
+    {%- endblock %}
 
-  {%- block footer %}
-    {%- include ['custom/footer.html', 'footer.html'] ignore missing %}
-  {%- endblock %}
+    {%- block body %}{% endblock %}
+
+    {%- block footer %}
+      {# {%- include ['custom/footer.html', 'footer.html'] ignore missing %} #}
+    {%- endblock %}
+  {%- endif %}
 
   {%- block foot %}
-    {%- include ['custom/foot.html', 'foot.html'] ignore missing %}
+    {# {%- include ['custom/foot.html', 'foot.html'] ignore missing %} #}
   {%- endblock %}
 </body>
 </html>

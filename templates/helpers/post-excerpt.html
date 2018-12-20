@@ -1,0 +1,11 @@
+{%- from 'helpers/config.html' import suka_config with context -%}
+
+{%- macro excerpt(post) -%}
+  {%- if post %}
+    {%- if post.preview|trim -%}
+      {{ post.preview|striptags }}
+    {%- else -%}
+      {{ post.content|striptags|truncate(suka_config.POST_ENTRY_EXCERPT) }}
+    {%- endif -%}
+  {%- endif -%}
+{%- endmacro -%}

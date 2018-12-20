@@ -1,11 +1,14 @@
 {%- from 'helpers/config.html' import suka_config with context %}
+{%- from 'helpers/suka_tags.html' import suka_tags with context %}
+{%- from 'helpers/suka_desc.html' import suka_desc with context %}
+{%- from 'helpers/suka_title.html' import suka_title with context %}
 
 <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
 <meta name="renderer" content="webkit">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 
 <!-- Title -->
-<title>{% include '_partial/head/site-title.html' %}</title>
+<title>{{ suka_title }}{{ site.title }}</title>
 
 <!-- favicon -->
 <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='img/suka-favicon.ico') }}">
@@ -13,10 +16,10 @@
 <meta name="format-detection" content="telephone=no">
 
 <!-- Description -->
-<meta name="description" content="{{ site.subtitle }}">
+<meta name="description" content="{{ suka_desc }}">
 
 <!-- Keywords . -->
-<meta name="keywords" content="{{ suka_config.KEYWORDS|join(',') }}">
+<meta name="keywords" content="{{ suka_tags|join(',') }}">
 
 <!-- Disable Fucking Bloody Baidu Tranformation -->
 <meta http-equiv="Cache-Control" content="no-transform" />

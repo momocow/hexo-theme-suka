@@ -1,0 +1,12 @@
+{%- from 'helpers/here.html' import here with context %}
+{%- from 'helpers/post-excerpt.html' import excerpt %}
+
+{%- if entry -%}
+  {%- if entry.meta.description -%}
+    {%- set suka_desc = entry.meta.description -%}
+  {%- else -%}
+    {%- set suka_desc = excerpt(entry) -%}
+  {%- endif -%}
+{%- else -%}
+  {%- set suka_desc = site.title -%}
+{%- endif -%}

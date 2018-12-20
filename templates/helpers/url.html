@@ -1,0 +1,16 @@
+{%- macro full_url_for(path) -%}
+  {%- if path -%}
+    {%- if path.startswith('http') -%}
+      {{ path }}
+    {%- elif path.startswith('/') -%}
+      {{ site.root_url + path.replace('index.html', '') }}
+    {%- else -%}
+      {{ site.root_url + '/' + path.replace('index.html', '') }}
+    {%- endif -%}
+  {%- else -%}
+    {{ url_for('.index') }}
+  {%- endif -%}
+{%- endmacro -%}
+
+{%- set full_url = full_url_for(request.path) -%}
+{%- set home_url = url_for('.index') -%}

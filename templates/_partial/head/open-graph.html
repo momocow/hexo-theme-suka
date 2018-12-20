@@ -1,0 +1,40 @@
+{%- from 'helpers/url.html' import full_url with context %}
+{%- from 'helpers/here.html' import here with context %}
+{%- from 'helpers/suka_icon.html' import suka_icon with context %}
+{%- from 'helpers/config.html' import suka_config with context %}
+{%- from 'helpers/suka_tags.html' import suka_tags with context %}
+{%- from 'helpers/suka_desc.html' import suka_desc with context %}
+{%- from 'helpers/suka_title.html' import suka_title with context %}
+
+{%- from 'helpers/post-excerpt.html' import excerpt %}
+{%- from 'helpers/post-meta.html' import thumbnail %}
+
+<meta property="og:title" content="{{ suka_title }}{{ site.title }}">
+<meta property="og:site_name" content="{{ site.title }}">
+
+<meta property="og:locale" content="{{ site.language }}">
+
+<meta property="og:url" content="{{ full_url }}">
+<meta property="og:image" content="{{ thumbnail(entry) or suka_icon }}">
+
+<meta property="og:description" content="{{ suka_desc }}">
+
+<meta name="twitter:card" content="{{ 'summary_large_image' if thumbnail(entry) else 'summary' }}">
+
+{%- if here == 'post' %}
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="{{ entry.created.isoformat() }}">
+  <meta property="article:modified_time" content="{{ entry.updated.isoformat() }}">
+  <meta property="article:author" content="{{ site.author }}">
+  <meta property="og:article:tag" content="{{ suka_tags }}"> 
+{%- else %}
+  <meta property="og:type" content="blog">
+{%- endif %}
+
+{%- if suka_config.comment.USE == 'facebook' %}
+  {%- if suka_config.comment.facebook.ADMIN_FB_APPID %}
+    <meta property="fb:app_id" content="{{ suka_config.comment.facebook.ADMIN_FB_APPID }}">
+  {%- elif suka_config.comment.facebook.ADMIN_FB_USERNAME %}
+    <meta property="fb:admins" content="{{ suka_config.comment.facebook.ADMIN_FB_USERNAME }}">
+  {%- endif %}
+{%- endif %}

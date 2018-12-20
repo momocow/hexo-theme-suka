@@ -1,15 +1,15 @@
-{%- if entry %}
-  {%- if 'tags' in entry and 'categories' in entry %}
-    {%- set here = 'post' %}
-  {%- else %}
-    {%- set here = 'page' %}
-  {%- endif %}
-{%- elif entries %}
-  {%- if archive_type %}
-    {%- set here = archive_type|lower %}
-  {%- else %}
-    {%- set here = 'index' %}
-  {%- endif %}
-{%- else %}
-  {%- set here = '' %}
-{%- endif %}
+{%- if entry -%}
+  {%- if 'tags' in entry and 'categories' in entry -%}
+    {%- set here = 'post' -%}
+  {%- else -%}
+    {%- set here = 'page' -%}
+  {%- endif -%}
+{%- elif entries -%}
+  {%- if archive_type -%}
+    {%- set here = archive_type|lower -%}
+  {%- else -%}
+    {%- set here = 'home' -%}
+  {%- endif -%}
+{%- else -%}
+  {%- set here = '' -%}
+{%- endif -%}

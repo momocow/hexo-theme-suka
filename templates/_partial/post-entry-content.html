@@ -1,15 +1,12 @@
 {%- from 'helpers/config.html' import suka_config with context %}
+{%- from 'helpers/post-excerpt.html' import excerpt %}
 
 {% if post.title|trim %}
     <h2 class="h5 mb-0 card-header"><a class="card-title" href="{{ post.url }}">{{ post.title|trim }}</a></h2>
 {% endif %}
 
 <p class="mb-0 card-body">
-    {% if post.preview|trim %}
-      {{ post.preview|striptags|capitalize }}
-    {% else %}
-      {{ post.content|striptags|truncate(suka_config.POST_ENTRY_EXCERPT) }}
-    {% endif %}<a href="{{ post.url }}">{{ suka_config.READ_MORE }}</a>
+    {{ excerpt(post) }}<a href="{{ post.url }}">{{ suka_config.READ_MORE }}</a>
 </p>
 
 

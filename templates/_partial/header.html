@@ -1,0 +1,17 @@
+{%- from 'helpers/url.html' import home_url with context -%}
+{%- from 'helpers/config.html' import suka_config with context -%}
+
+<!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="{{ home_url }}">{{ site.title }}</a></h1>
+
+    <p class="text-center header-slogan">
+      {%- if suka_config.uiux.SLOGAN is string %}
+        {{ suka_config.uiux.SLOGAN }}
+      {%- else %}
+        {{ suka_config.uiux.SLOGAN|join('<br>') }}
+      {%- endif %}
+    </p>
+
+    {# <%- partial('_partial/index-nav', {}, {cache: theme.fragment_cache}) %> #}
+</header>

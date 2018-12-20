@@ -1,23 +1,34 @@
+{%- from 'helpers/url.html' import full_url with context %}
+
 <meta charset="utf-8">
 <!-- ### DNS Prefetch ### -->
-{% include '_partial/head/dns-prefetch.html' %}
+{%- include '_partial/head/dns-prefetch.html' %}
 
 <!-- ### Preload ### -->
-{% include '_partial/source/preload.html' %}
+{%- include '_partial/source/preload.html' %}
 
 <!-- ### Meta & Title & Info ### -->
-{% include '_partial/head/meta.html' %}
+{%- include '_partial/head/meta.html' %}
 
 <!-- ### Import File ### -->
-{% include '_partial/source/head.html' %}
+{%- include '_partial/source/head.html' %}
 
 <!-- ### Site Verification ### -->
-{% include '_partial/head/site-verification.html' %}
+{%- include '_partial/head/site-verification.html' %}
 
 <!-- ### RSS ### -->
-{% include '_partial/head/rss.html' %}
+{%- include '_partial/head/rss.html' %}
 
 <!-- ### WebApp ### -->
-{% include '_partial/head/webapp.html' %}
+{%- include '_partial/head/webapp.html' %}
 
-<link rel="canonical" href="{{ site.root_url + request.path.replace('index.html', '') }}">
+<!-- ### The Open Graph & Twitter Card Protocol ### -->
+{%- include '_partial/head/open-graph.html' %}
+
+<!-- ### Analytics ### -->
+{%- include '_partial/head/analytics.html' %}
+
+<link rel="canonical" href="{{ full_url }}">
+
+<!-- ### Structured Data ### -->
+{%- include '_partial/head/structured-data.html' %}

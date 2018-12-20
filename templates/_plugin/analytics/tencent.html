@@ -1,0 +1,10 @@
+{%- from 'helpers/config.html' import suka_config with context %}
+
+<script>
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//tajs.qq.com/stats?sId={{ suka_config.analytics.TENCENT_SITE_ID }}";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
