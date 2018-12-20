@@ -60,7 +60,7 @@ function startVeripressPreview () {
     {
       cwd: path.resolve(__dirname, 'test'),
       stdio: 'pipe',
-      windowsHide: true
+      windowsHide: false
     }
   )
 
