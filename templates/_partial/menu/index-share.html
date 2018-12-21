@@ -1,0 +1,73 @@
+{%- from 'helpers/config.html' import suka_config with context -%}
+{%- from 'helpers/i18n.html' import i18n with context -%}
+{%- from 'helpers/suka_title.html' import suka_title with context -%}
+{%- from 'helpers/suka_desc.html' import suka_desc with context -%}
+{%- from 'helpers/url.html' import full_url with context -%}
+{%- from 'helpers/suka_meta.html' import suka_thumb with context -%}
+{%- from 'helpers/suka_icon.html' import suka_icon with context -%}
+
+<div class="dropdown dropdown-right">
+    <a class="navbar-link dropdown-toggle" tabindex="0">{{ i18n('share.share') }}</a>
+    <ul class="menu share-menu">
+
+        <!-- Share Weibo -->
+        {%- if suka_config.sns_share.WEIBO %}
+        <li class="menu-item">
+            <a href="http://service.weibo.com/share/share.php?appkey=&title={{ suka_title or site.title }}&url={{ full_url }}&pic={{ suka_thumb() or suka_icon }}&searchPic=false&style=simple" target="_blank" rel="noopener noreferrer nofollow">{{ i18n('share.toWeibo') }}</a>
+        </li>
+        {%- endif %}
+
+        <!-- Share Twitter -->
+        {%- if suka_config.sns_share.TWITTER %}
+        <li class="menu-item">
+            <a href="https://twitter.com/intent/tweet?text={{ suka_title or site.title }}&url={{ full_url }}&via={{ site.author }}" target="_blank" rel="noopener noreferrer nofollow">{{ i18n('share.toTwitter') }}</a>
+        </li>
+        {%- endif %}
+
+        <!-- Share Facebook -->
+        {%- if suka_config.sns_share.FACEBOOK %}
+        <li class="menu-item">
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ full_url }}" target="_blank" rel="noopener noreferrer nofollow">{{ i18n('share.toFacebook') }}</a>
+        </li>
+        {%- endif %}
+
+        <!-- Share Google+ -->
+        {%- if suka_config.sns_share.GOOGLEPLUS %}
+        <li class="menu-item">
+            <a href="https://plus.google.com/share?url={{ full_url }}" target="_blank" rel="noopener noreferrer nofollow">{{ i18n('share.toGplus') }}</a>
+        </li>
+        {%- endif %}
+
+        <!-- Share LinkedIn -->
+        {%- if suka_config.sns_share.LINKEDIN %}
+        <li class="menu-item">
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ full_url }}&title={{ suka_title or site.title }}" target="_blank" rel="noopener noreferrer nofollow">{{ i18n('share.toLinkedIn') }}</a>
+        </li>
+        {%- endif %}
+
+        <!-- Share QQ -->
+        {%- if suka_config.sns_share.QQ %}
+        <li class="menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site={{ site.title }}&title={{ suka_title or site.title }}&summary={{ suka_desc }}&pics={{ suka_thumb() or suka_icon }}&url={{ full_url }}" target="_blank" rel="noopener noreferrer nofollow">{{ i18n('share.toQQ') }}</a>
+        </li>
+        {%- endif %}
+
+        <!-- Share Telegram -->
+        {%- if suka_config.sns_share.TELEGRAM %}
+        <li class="menu-item">
+            <a href="https://t.me/share/url?url={{ full_url }}&text={{ suka_title or site.title }}" target="_blank" rel="noopener noreferrer nofollow">{{ i18n('share.toTelegram') }}</a>
+        </li>
+        {%- endif %}
+
+{# QRCode is not supported
+ # Possible solution: https://github.com/marcoagner/Flask-QRcode
+        <!-- QRCode -->
+        {%- if suka_config.qrcode.POST_SHARE %}
+        <li class="menu-item">
+            <img src="<%- qrcode(url, {margin: 2, size: 4}) %>" alr="QRCode">
+        </li>
+        {%- endif %}
+ #}
+
+    </ul>
+</div>

@@ -1,0 +1,18 @@
+{# Semantic equivalence to Hexo#list_categories
+
+list_categories(post.categories, {
+  show_count: false,
+  separator: '<span class="suka-devide-dot"></span>',
+  style: 'none'
+})
+
+#}
+
+{%- macro list_categories(categories) -%}
+  {%- for category in categories -%}
+  <a href="{{ url_for('.category', category_name=category) }}" class="category-link">{{ category }}</a>
+    {%- if not loop.last %}
+    <span class="suka-devide-dot"></span>
+    {%- endif -%}
+  {%- endfor -%}
+{%- endmacro -%}

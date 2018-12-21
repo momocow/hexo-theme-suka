@@ -1,4 +1,6 @@
 {%- from 'helpers/config.html' import suka_config with context %}
+{%- from 'helpers/i18n.html' import i18n with context %}
+{%- from 'helpers/list_categories.html' import list_categories %}
 {%- from 'helpers/post-excerpt.html' import excerpt %}
 
 {% if post.title|trim %}
@@ -6,24 +8,20 @@
 {% endif %}
 
 <p class="mb-0 card-body">
-    {{ excerpt(post) }}<a href="{{ post.url }}">{{ suka_config.READ_MORE }}</a>
+    {{ excerpt(post) }}<a href="{{ post.url }}">{{ i18n('post.continue') }}</a>
 </p>
 
 
 <!-- Date & Category -->
 <div class="card-footer post-entry-info text-gray">
-    {% include '_partial/avatar.html' %}
+    {%- include '_partial/avatar.html' %}
     <time>{{ post.created.strftime(suka_config.DATE_FORMAT) }}</time>
-    {% if post.categories %}
+    {%- if post.categories %}
         <span class="suka-devide-dot"></span>
-        {# {%- list_categories(post.categories, {
-            show_count: false,
-            separator: '<span class="suka-devide-dot"></span>',
-            style: 'none'
-        }) %} #}
-    {% endif %}
-    {# {% if ( (theme.valine_counter.enable === true) && (theme.valine_counter.index_post_pv.enable === true) ) { %}
+        {{ list_categories(post.categories) }}
+    {%- endif %}
+    {%- if suka_config.valine_counter.ENABLE and suka_config.valine_counter.index_post_pv.ENABLE %}
         <span class="suka-devide-dot"></span>
-        {%- partial('_plugin/valine-counter/index_post', {}, {cache: theme.fragment_cache}) %}
-    {% } %} #}
+        {%- include '_plugin/valine-counter/index_post.html' %}
+    {%- endif %}
 </div>

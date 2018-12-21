@@ -1,8 +1,9 @@
 {# Constants #}
 {%- set SUPPORTED_COMMENT_PLUGINS = [
+  'changyan',
   'disqus',
   'disqusjs',
-  'changyan',
+  'facebook',
   'gitalk',
   'gitment',
   'livere',
@@ -22,8 +23,11 @@
 {%- set suka_config.hanabi = namespace() -%}
 {%- set suka_config.head = namespace() -%}
 {%- set suka_config.nav = namespace() -%}
+{%- set suka_config.qrcode = namespace() -%}
 {%- set suka_config.search = namespace() -%}
+{%- set suka_config.sns_share = namespace() -%}
 {%- set suka_config.uiux = namespace() -%}
+{%- set suka_config.valine_counter = namespace() -%}
 {%- set suka_config.vendors = namespace() -%}
 
 {# Aliases #}
@@ -33,22 +37,35 @@
 {%- set suka_hanabi = suka_config.hanabi -%}
 {%- set suka_head = suka_config.head -%}
 {%- set suka_nav = suka_config.nav -%}
+{%- set suka_qrcode = suka_config.qrcode -%}
 {%- set suka_search = suka_config.search -%}
+{%- set suka_sns_share = suka_config.sns_share -%}
 {%- set suka_uiux = suka_config.uiux -%}
+{%- set suka_valine_counter = suka_config.valine_counter -%}
 {%- set suka_vendors = suka_config.vendors -%}
 
 {# Sub-Namespaces #}
 {%- set suka_comment.facebook = namespace() -%}
 {%- set suka_head.favicon = namespace() -%}
 {%- set suka_head.site_verification = namespace() -%}
+{%- set suka_nav.home = namespace() -%}
 {%- set suka_nav.search = namespace() -%}
+{%- set suka_nav.archives = namespace() -%}
+{%- set suka_nav.share = namespace() -%}
+{%- set suka_nav.rss = namespace() -%}
+{%- set suka_valine_counter.index_post_pv = namespace() -%}
 {%- set suka_vendors.suka = namespace() -%}
 
 {# Sub-Aliases #}
 {%- set suka_comment_facebook = suka_comment.facebook -%}
 {%- set suka_head_favicon = suka_head.favicon -%}
 {%- set suka_head_site_verification = suka_head.site_verification -%}
+{%- set suka_nav_home = suka_nav.home -%}
 {%- set suka_nav_search = suka_nav.search -%}
+{%- set suka_nav_archives = suka_nav.archives -%}
+{%- set suka_nav_share = suka_nav.share -%}
+{%- set suka_nav_rss = suka_nav.rss -%}
+{%- set suka_valine_counter_index_post_pv = suka_valine_counter.index_post_pv -%}
 {%- set suka_vendors_suka = suka_vendors.suka -%}
 
 {# Keywords #}
@@ -99,14 +116,6 @@
     config.SUKA_POST_ENTRY_EXCERPT is number
   else
     120
--%}
-
-{# READ_MORE #}
-{%- set suka_config.READ_MORE = config.SUKA_READ_MORE
-  if
-    config.SUKA_READ_MORE is string
-  else
-    'Read more'
 -%}
 
 {# AVATAR #}
@@ -343,4 +352,132 @@
     suka_search.USE == 'local'
   else
     None
+-%}
+
+{# nav.home.USE #}
+{%- set suka_nav_home.USE = False
+  if
+    config.SUKA_NAV_HOME_USE == False
+  else
+    True
+-%}
+
+{# nav.archives.USE #}
+{%- set suka_nav_archives.USE = False
+  if
+    config.SUKA_NAV_ARCHIVES_USE == False
+  else
+    True
+-%}
+
+{# nav.search.USE #}
+{%- set suka_nav_search.USE = False
+  if
+    config.SUKA_NAV_SEARCH_USE == False
+  else
+    True
+-%}
+
+{# nav.share.USE #}
+{%- set suka_nav_share.USE = False
+  if
+    config.SUKA_NAV_SHARE_USE == False
+  else
+    True
+-%}
+
+{# nav.rss.USE #}
+{%- set suka_nav_rss.USE = False
+  if
+    config.SUKA_NAV_RSS_USE == False
+  else
+    True
+-%}
+
+{# nav.PAGES #}
+{%- set suka_nav.PAGES = config.SUKA_NAV_PAGES
+  if
+    config.SUKA_NAV_PAGES is iterable and config.SUKA_NAV_PAGES is not string
+  else
+    []
+-%}
+
+{# sns_share.WEIBO #}
+{%- set suka_sns_share.WEIBO = False
+  if
+    config.SUKA_SNS_SHARE_WEIBO == False
+  else
+    True
+-%}
+
+{# sns_share.TWITTER #}
+{%- set suka_sns_share.TWITTER = False
+  if
+    config.SUKA_SNS_SHARE_TWITTER == False
+  else
+    True
+-%}
+
+{# sns_share.FACEBOOK #}
+{%- set suka_sns_share.FACEBOOK = False
+  if
+    config.SUKA_SNS_SHARE_FACEBOOK == False
+  else
+    True
+-%}
+
+{# sns_share.GOOGLEPLUS #}
+{%- set suka_sns_share.GOOGLEPLUS = False
+  if
+    config.SUKA_SNS_SHARE_GOOGLEPLUS == False
+  else
+    True
+-%}
+
+{# sns_share.LINKEDIN #}
+{%- set suka_sns_share.LINKEDIN = False
+  if
+    config.SUKA_SNS_SHARE_LINKEDIN == False
+  else
+    True
+-%}
+
+{# sns_share.QQ #}
+{%- set suka_sns_share.QQ = False
+  if
+    config.SUKA_SNS_SHARE_QQ == False
+  else
+    True
+-%}
+
+{# sns_share.TELEGRAM #}
+{%- set suka_sns_share.TELEGRAM = False
+  if
+    config.SUKA_SNS_SHARE_TELEGRAM == False
+  else
+    True
+-%}
+
+{# qrcode.POST_SHARE #}
+{%- set suka_qrcode.POST_SHARE = False
+  if
+    config.SUKA_QRCODE_POST_SHARE == False
+  else
+    True
+-%}
+
+{# valine_counter.ENABLE #}
+{%- set suka_valine_counter.ENABLE = True
+  if
+    config.SUKA_QRCODE_POST_SHARE == True
+  else
+    False
+-%}
+
+{# valine_counter.index_post_pv.ENABLE #}
+{%- set suka_valine_counter_index_post_pv.ENABLE = True
+  if
+    config.SUKA_QRCODE_POST_SHARE == True
+  else
+    False
 -%}

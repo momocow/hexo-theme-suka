@@ -10,13 +10,13 @@
     <a href="{{ url_for('.archive') }}" class="navbar-link">{{ i18n('archive') }}</a>
   {%- endif %}
   {%- if suka_config.nav.search.USE %}
-    <a href="<%= theme.nav.search.link %>" class="navbar-link">{{ i18n('search') }}</a>
+    <a href="<%= theme.nav.search.link %>" class="navbar-link">{{ i18n('search.main') }}</a>
   {%- endif %}
   {%- for page in suka_config.nav.PAGES %}
     <a href="{{ page.link }}" class="navbar-link">{{ loop.index }}</a>
   {%- endfor %}
   {%- if suka_config.nav.share.USE %}
-    {# {%- include '_partial/menu/index-share' %} #}
+    {%- include '_partial/menu/index-share.html' %}
   {%- endif %}
   {%- if suka_config.nav.rss.USE %}
     <a href="{{ url_for('.feed') }}" target="_blank" class="navbar-link">RSS</a>

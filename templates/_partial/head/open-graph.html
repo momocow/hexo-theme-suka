@@ -5,9 +5,8 @@
 {%- from 'helpers/suka_tags.html' import suka_tags with context %}
 {%- from 'helpers/suka_desc.html' import suka_desc with context %}
 {%- from 'helpers/suka_title.html' import suka_title with context %}
-
-{%- from 'helpers/post-excerpt.html' import excerpt %}
-{%- from 'helpers/post-meta.html' import thumbnail %}
+{%- from 'helpers/post-excerpt.html' import excerpt with context %}
+{%- from 'helpers/suka_meta.html' import suka_thumb with context %}
 
 <meta property="og:title" content="{{ suka_title }}{{ site.title }}">
 <meta property="og:site_name" content="{{ site.title }}">
@@ -15,11 +14,11 @@
 <meta property="og:locale" content="{{ site.language }}">
 
 <meta property="og:url" content="{{ full_url }}">
-<meta property="og:image" content="{{ thumbnail(entry) or suka_icon }}">
+<meta property="og:image" content="{{ suka_thumb(entry) or suka_icon }}">
 
 <meta property="og:description" content="{{ suka_desc }}">
 
-<meta name="twitter:card" content="{{ 'summary_large_image' if thumbnail(entry) else 'summary' }}">
+<meta name="twitter:card" content="{{ 'summary_large_image' if suka_thumb(entry) else 'summary' }}">
 
 {%- if here == 'post' %}
   <meta property="og:type" content="article">

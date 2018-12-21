@@ -4,8 +4,8 @@
 {%- from 'helpers/suka_tags.html' import suka_tags with context -%}
 {%- from 'helpers/suka_desc.html' import suka_desc with context -%}
 {%- from 'helpers/suka_title.html' import suka_title with context -%}
-{%- from 'helpers/suka_icon.html' import suka_icon -%}
-{%- from 'helpers/post-meta.html' import thumbnail -%}
+{%- from 'helpers/suka_icon.html' import suka_icon with context -%}
+{%- from 'helpers/suka_meta.html' import suka_thumb with context -%}
 
 {%- if here == 'home' %}
 <script type="application/ld+json">
@@ -64,10 +64,10 @@
         "@id": "{{ entry.url }}"
     },
     "headline": "{{ suka_title }}{{ site.title }}",
-    {%- if thumbnail(entry) %}
+    {%- if suka_thumb(entry) %}
     "image": {
         "@type": "ImageObject",
-        "url": "{{ full_url_for(thumbnail(entry)) }}"
+        "url": "{{ full_url_for(suka_thumb(entry)) }}"
     },
     {%- else %}
     "image": {

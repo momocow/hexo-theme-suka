@@ -13,5 +13,5 @@
       {%- endif %}
     </p>
 
-    {# <%- partial('_partial/index-nav', {}, {cache: theme.fragment_cache}) %> #}
+    {%- include [ 'custom/nav.html', '_partial/index-nav.html'] %}
 </header>

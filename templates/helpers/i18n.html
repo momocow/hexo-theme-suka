@@ -1,12 +1,12 @@
 {%- set dict = namespace() -%}
 {%- set lang = site.language or 'en_US' -%}
 
-{% include [
-  'custom/i18n/%s.html' % lang,
-  'i18n/%s.html' % lang,
-  'i18n/en_US.html'
-] ignore missing %}
+{# Fallback: Should be full translated #}
+{% include 'i18n/en_US.html' %}
 
-{%- macro i18n(key) -%}
-{{ dict[key] or key }}
+{# Customization: Partial translation is acceptable #}
+{% include [ 'custom/i18n/%s.html' % lang, 'i18n/%s.html' % lang ] ignore missing %}
+
+{%- macro i18n(key, default=None) -%}
+{{ dict[key|lower|replace('.', '_')] or default or key }}
 {%- endmacro -%}
