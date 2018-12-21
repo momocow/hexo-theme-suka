@@ -9,6 +9,7 @@ Hexo theme: [hexo-theme-suka](https://github.com/SukkaW/hexo-theme-suka)
 - [veripress-theme-suka](#veripress-theme-suka)
   - [Configuration](#configuration)
     - [Supported Comment Plugins](#supported-comment-plugins)
+  - [Customizable templates](#customizable-templates)
   - [Development](#development)
     - [Differences against hexo-theme-suka](#differences-against-hexo-theme-suka)
     - [Additional functions to Veripress](#additional-functions-to-veripress)
@@ -49,10 +50,18 @@ Options for `SUKA_COMMENT_USE`
 - `livere`
 - `valine`
 
+## Customizable templates
+- `head.html`
+- `header.html`
+- `footer.html`
+- `foot.html`
+- `nav.html`
+
 ## Development
 
 ### Differences against hexo-theme-suka
 - Only Atom RSS is supported.
+- QRCode generation is not supported yet.
 
 ### Additional functions to Veripress
 - Post thumbnail.
