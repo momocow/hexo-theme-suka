@@ -1,0 +1,12 @@
+{%- set dict = namespace() -%}
+{%- set lang = site.language or 'en_US' -%}
+
+{% include [
+  'custom/i18n/%s.html' % lang,
+  'i18n/%s.html' % lang,
+  'i18n/en_US.html'
+] ignore missing %}
+
+{%- macro i18n(key) -%}
+{{ dict[key] or key }}
+{%- endmacro -%}
