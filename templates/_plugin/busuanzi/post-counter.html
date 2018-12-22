@@ -1,0 +1,9 @@
+{%- from 'helpers/suka_config.html' import suka_config with context -%}
+
+<!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span>{{ suka_config.busuanzi.post_pv.BEFORE|safe }}</span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>{{ suka_config.busuanzi.post_pv.AFTER|safe }}</span>
+</span>

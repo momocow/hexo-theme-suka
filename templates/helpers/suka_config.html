@@ -24,6 +24,7 @@
 {%- set suka_config.hanabi = namespace() -%}
 {%- set suka_config.head = namespace() -%}
 {%- set suka_config.nav = namespace() -%}
+{%- set suka_config.post = namespace() -%}
 {%- set suka_config.prettify = namespace() -%}
 {%- set suka_config.qrcode = namespace() -%}
 {%- set suka_config.search = namespace() -%}
@@ -40,6 +41,7 @@
 {%- set suka_hanabi = suka_config.hanabi -%}
 {%- set suka_head = suka_config.head -%}
 {%- set suka_nav = suka_config.nav -%}
+{%- set suka_post = suka_config.post -%}
 {%- set suka_prettify = suka_config.prettify -%}
 {%- set suka_qrcode = suka_config.qrcode -%}
 {%- set suka_search = suka_config.search -%}
@@ -49,6 +51,7 @@
 {%- set suka_vendors = suka_config.vendors -%}
 
 {# Sub-Namespaces #}
+{%- set suka_busuanzi.post_pv = namespace() -%}
 {%- set suka_busuanzi.site_pv = namespace() -%}
 {%- set suka_busuanzi.site_uv = namespace() -%}
 {%- set suka_comment.changyan = namespace() -%}
@@ -61,10 +64,12 @@
 {%- set suka_nav.share = namespace() -%}
 {%- set suka_nav.rss = namespace() -%}
 {%- set suka_valine_counter.index_post_pv = namespace() -%}
+{%- set suka_valine_counter.post_pv = namespace() -%}
 {%- set suka_valine_counter.site_pv = namespace() -%}
 {%- set suka_vendors.suka = namespace() -%}
 
 {# Sub-Aliases #}
+{%- set suka_busuanzi_post_pv = suka_busuanzi.post_pv -%}
 {%- set suka_busuanzi_site_pv = suka_busuanzi.site_pv -%}
 {%- set suka_busuanzi_site_uv = suka_busuanzi.site_uv -%}
 {%- set suka_comment_changyan = suka_comment.changyan -%}
@@ -77,6 +82,7 @@
 {%- set suka_nav_share = suka_nav.share -%}
 {%- set suka_nav_rss = suka_nav.rss -%}
 {%- set suka_valine_counter_index_post_pv = suka_valine_counter.index_post_pv -%}
+{%- set suka_valine_counter_post_pv = suka_valine_counter.post_pv -%}
 {%- set suka_valine_counter_site_pv = suka_valine_counter.site_pv -%}
 {%- set suka_vendors_suka = suka_vendors.suka -%}
 
@@ -192,6 +198,30 @@
     config.SUKA_BUSUANZI_ENABLE
   else
     False
+-%}
+
+{# busuanzi.post_pv.ENABLE #}
+{%- set suka_busuanzi_post_pv.ENABLE = True
+  if
+    config.SUKA_BUSUANZI_POST_PV_ENABLE
+  else
+    False
+-%}
+
+{# busuanzi.post_pv.AFTER #}
+{%- set suka_busuanzi_post_pv.AFTER = config.SUKA_BUSUANZI_POST_PV_AFTER
+  if
+    config.SUKA_BUSUANZI_POST_PV_AFTER is string
+  else
+    None
+-%}
+
+{# busuanzi.post_pv.BEFORE #}
+{%- set suka_busuanzi_post_pv.BEFORE = config.SUKA_BUSUANZI_POST_PV_BEFORE
+  if
+    config.SUKA_BUSUANZI_POST_PV_BEFORE is string
+  else
+    None
 -%}
 
 {# busuanzi.site_pv.ENABLE #}
@@ -622,6 +652,30 @@
     None
 -%}
 
+{# valine_counter.post_pv.ENABLE #}
+{%- set suka_valine_counter_post_pv.ENABLE = True
+  if
+    config.SUKA_VALINE_COUNTER_POST_PV_ENABLE == True
+  else
+    False
+-%}
+
+{# valine_counter.post_pv.BEFORE #}
+{%- set suka_valine_counter_post_pv.BEFORE = config.SUKA_VALINE_COUNTER_POST_PV_BEFORE
+  if
+    config.SUKA_VALINE_COUNTER_POST_PV_BEFORE is string
+  else
+    None
+-%}
+
+{# valine_counter.post_pv.AFTER #}
+{%- set suka_valine_counter_post_pv.AFTER = config.SUKA_VALINE_COUNTER_POST_PV_AFTER
+  if
+    config.SUKA_VALINE_COUNTER_POST_PV_AFTER is string
+  else
+    None
+-%}
+
 {# valine_counter.site_pv.ENABLE #}
 {%- set suka_valine_counter_site_pv.ENABLE = True
   if
@@ -668,4 +722,28 @@
     config.SUKA_PRETTIFY_ENABLE
   else
     False
+-%}
+
+{# post.SHARE #}
+{%- set suka_post.SHARE = False
+  if
+    config.SUKA_POST_SHARE == False
+  else
+    True
+-%}
+
+{# post.LICENSE #}
+{%- set suka_post.LICENSE = config.SUKA_POST_LICENSE
+  if
+    config.SUKA_POST_LICENSE is string
+  else
+    None
+-%}
+
+{# post.EXPIRE #} {# unit: days #}
+{%- set suka_post.EXPIRE = config.SUKA_POST_EXPIRE
+  if
+    config.SUKA_POST_EXPIRE is number
+  else
+    None
 -%}

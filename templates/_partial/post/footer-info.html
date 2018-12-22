@@ -1,0 +1,59 @@
+{%- from 'helpers/i18n.html' import i18n with context -%}
+{%- from 'helpers/url.html' import full_url with context -%}
+
+{%- if not entry.meta.hide_license and suka_config.post.LICENSE or entry.meta.license %}
+  <blockquote class="post-license">
+    <p>
+      <strong>{{ i18n('post.author')|capitalize }}&nbsp;:&nbsp;{{ site.author }}</strong>
+      <br>
+      <strong>
+      {%- if entry.meta.license %}
+        {{ entry.meta.license }}
+      {%- else %}
+        {{ suka_config.post.LICENSE }}
+      {%- endif %}</strong>
+      <br>
+      <strong>{{ i18n('post.permalink')|capitalize }}&nbsp;:&nbsp;</strong><a href="{{ full_url }}">{{ full_url }}</a>
+    </p>
+  </blockquote>
+{%- endif %}
+
+{%- if suka_config.post.EXPIRE %}
+    <blockquote id="date-expire-notification" class="post-expired-notify">{{ i18n('post.expired')|format('<span id="date-expire-num"></span>') }}</blockquote>
+    <script>
+        var dateUpdate = Date.parse("{{ entry.updated.strftime('%Y-%m-%d') }}");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= {{ suka_config.post.EXPIRE }}) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    </script>
+{%- endif %}
+
+<p class="post-footer-info mb-0 pt-0">{{ i18n('post.posted')|capitalize }}&nbsp;<time datetime="{{ entry.created.isoformat() }}" itemprop="datePublished">{{ entry.created.strftime(suka_config.DATE_FORMAT) }}</time>
+{%- if entry.created.timestamp() != entry.updated.timestamp() %}
+    , {{ i18n('post.edited')|lower }}&nbsp;<time datetime="{{ entry.updated.isoformat() }}" itemprop="dateModified">{{ entry.updated.strftime(suka_config.DATE_FORMAT) }}</time>
+{%- endif %}
+</p>
+<p class="post-footer-info mb-0 pt-2">
+{%- if entry.categories %}
+<span class="post-categories-list mt-2">
+{%- for category in entry.categories %}
+<a class="post-categories-list-item" href='{{ url_for('.category', category_name=category) }}'>{{ category }}</a>
+{%- endfor %}
+</span>
+{%- endif %}
+
+{%- if entry.tags %}
+<span class="post-tags-list mt-2">
+{%- for tag in entry.tags %}
+<a class="post-tags-list-item" href='{{ url_for('.tag', tag_name=tag) }}'>#&nbsp;{{ tag }}</a>
+{%- endfor %}
+</span>
+{%- endif %}
+
+</p>

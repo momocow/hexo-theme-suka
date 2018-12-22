@@ -1,0 +1,8 @@
+{%- from 'helpers/suka_config.html' import suka_config with context -%}
+
+<span class="suka-devide-dot"></span>
+<span id="{{ entry.url }}" class="leancloud-visitors" data-flag-title="{{ entry.title }}">
+    <span>{{ suka_config.valine_counter.post_pv.BEFORE|safe }}</span>
+    <span class="leancloud-visitors-count">0</span>
+    <span>{{ suka_config.valine_counter.post_pv.AFTER|safe }}</span>
+</span>
