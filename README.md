@@ -62,6 +62,7 @@ Options for `SUKA_COMMENT_USE`
 ### Differences against hexo-theme-suka
 - Only Atom RSS is supported.
 - QRCode generation is not supported yet.
+- Boolean, `solitude`, in post meta can make a post not explicitly linked from index page.
 
 ### Additional functions to Veripress
 - Post thumbnail.
