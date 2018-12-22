@@ -1,0 +1,61 @@
+{%- from 'helpers/here.html' import here with context -%}
+{%- from 'helpers/suka_config.html' import suka_config with context -%}
+{%- from 'version.html' import suka_version -%}
+
+<!-- ### Footer JS Import ### -->
+
+<script>
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+{%- if here != 'page' or entry.layout != 'gallery' %}
+    /* Copyright */
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.querySelector('span[data-year]')
+    {%- if suka_config.footer.COPYRIGHT_SINCE > 0 %}
+        copyrightSince = {{ suka_config.footer.COPYRIGHT_SINCE }};
+        if (copyrightSince === copyrightNow) {
+            copyrightContent.textContent = copyrightNow
+        } else {
+            copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow
+        }
+    {%- else %}
+        copyrightContent.textContent = copyrightNow
+    {%- endif %}
+{%- endif %}
+
+/* Cnosole Log */
+console.log('\n %c Suka Theme (veripress-theme-suka) | © MomoCow | Verision {{ suka_version }} %c https://github.com/momocow/veripress-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+console.log('\n %c Ported from (hexo-theme-suka) | © SukkaW | Verision {{ suka_version }} %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+</script>
+
+<!-- vanilla-lazyload -->
+<script src="{{ suka_config.vendors.LAZYLOAD }}" async></script>
+
+{%- if suka_config.busuanzi.ENABLE %}
+  <!-- Busuanzi -->
+  {%- include '_plugin/busuanzi/import_js.html' %}
+{%- endif %}
+
+{%- if suka_config.hanabi.ENABLE %}
+  <!-- Hanabi -->
+  {%- include '_plugin/highlight/hanabi/import_js.html' %}
+{%- endif %}
+
+{%- if suka_config.prettify.ENABLE %}
+  <!-- prettify -->
+  {%- include '_plugin/highlight/prettify/import_js.html' %}
+{%- endif %}
+
+<!-- gallery.js -->
+{%- if here == 'page' and entry.layout == 'gallery' %}
+  <script src="{{ suka_config.vendors.suka.GALLERY_JS }}"></script>
+{%- endif %}
+
+<!-- Comment -->
+{%- if suka_config.comment.USE %}
+  {%- if here == 'post' %}
+    {%- include '_plugin/comment/%s/common.html' % suka_config.comment.USE %}
+  {%- endif %}
+{%- endif %}

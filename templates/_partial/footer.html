@@ -1,0 +1,31 @@
+{%- from 'helpers/suka_config.html' import suka_config with context -%}
+{%- from 'helpers/url.html' import home_url with context -%}
+
+<footer class="text-center">
+  <!-- footer copyright -->
+  <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
+    <a class="footer-copyright-a" href="{{ home_url }}">{{ site.title }}</a>
+  </p>
+  <!-- footer custom text -->
+  <p class="footer-text mb-0">
+  {%- if suka_config.footer.CUSTOM_TEXT %}
+    {%- if suka_config.footer.CUSTOM_TEXT is string %}
+      {{ suka_config.footer.CUSTOM_TEXT }}
+    {%- else %}
+      {{ suka_config.footer.CUSTOM_TEXT|join('<br>') }}
+    {%- endif %}
+  {%- endif %}
+  </p>
+  <!-- footer develop info -->
+  <p class="footer-develop mb-0">
+    {%- if suka_config.busuanzi.ENABLE %}
+      {%- include '_plugin/busuanzi/footer_counter.html' %}
+    {%- endif %}
+    {%- if suka_config.valine_counter.ENABLE and suka_config.valine_counter.site_pv.ENABLE %}
+      {%- include '_plugin/valine-counter/footer.html' %}
+    {%- endif %}
+    Powered by&nbsp;<!--
+      --><a href="https://github.com/veripress/veripress" target="_blank" class="footer-develop-a" rel="nofollow noopener noreferrer">Veripress</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+      --><a href="https://github.com/momocow/veripress-theme-suka" target="_blank" class="footer-develop-a" rel="noopener">Suka</a>
+    </p>
+</footer>

@@ -1,0 +1,24 @@
+{%- from 'helpers/i18n.html' import i18n with context -%}
+
+{%- if prev_url or next_url %}
+<nav>
+<ul class="pagination">
+  {%- if prev_url %}
+    <li class="page-item page-prev">
+      <a href="{{ prev_url }}">
+        <span class="page-item-subtitle"><i class="icon icon-back" aria-hidden="true"></i></span>
+        <span class="page-item-title">{{ i18n('nav.prev_page') }}</span>
+      </a>
+    </li>
+  {%- endif %}
+  {%- if next_url %}
+    <li class="page-item page-next">
+      <a href="{{ next_url }}">
+        <span class="page-item-title">{{ i18n('nav.next_page') }}</span>
+        <span class="page-item-subtitle"><i class="icon icon-forward" aria-hidden="true"></i></span>
+      </a>
+    </li>
+  {%- endif %}
+</ul>
+</nav>
+{%- endif %}

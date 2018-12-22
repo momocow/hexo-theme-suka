@@ -20,9 +20,11 @@
 {%- set suka_config.analytics = namespace() -%}
 {%- set suka_config.busuanzi = namespace() -%}
 {%- set suka_config.comment = namespace() -%}
+{%- set suka_config.footer = namespace() -%}
 {%- set suka_config.hanabi = namespace() -%}
 {%- set suka_config.head = namespace() -%}
 {%- set suka_config.nav = namespace() -%}
+{%- set suka_config.prettify = namespace() -%}
 {%- set suka_config.qrcode = namespace() -%}
 {%- set suka_config.search = namespace() -%}
 {%- set suka_config.sns_share = namespace() -%}
@@ -34,9 +36,11 @@
 {%- set suka_analytics = suka_config.analytics -%}
 {%- set suka_busuanzi = suka_config.busuanzi -%}
 {%- set suka_comment = suka_config.comment -%}
+{%- set suka_footer = suka_config.footer -%}
 {%- set suka_hanabi = suka_config.hanabi -%}
 {%- set suka_head = suka_config.head -%}
 {%- set suka_nav = suka_config.nav -%}
+{%- set suka_prettify = suka_config.prettify -%}
 {%- set suka_qrcode = suka_config.qrcode -%}
 {%- set suka_search = suka_config.search -%}
 {%- set suka_sns_share = suka_config.sns_share -%}
@@ -45,6 +49,9 @@
 {%- set suka_vendors = suka_config.vendors -%}
 
 {# Sub-Namespaces #}
+{%- set suka_busuanzi.site_pv = namespace() -%}
+{%- set suka_busuanzi.site_uv = namespace() -%}
+{%- set suka_comment.changyan = namespace() -%}
 {%- set suka_comment.facebook = namespace() -%}
 {%- set suka_head.favicon = namespace() -%}
 {%- set suka_head.site_verification = namespace() -%}
@@ -54,9 +61,13 @@
 {%- set suka_nav.share = namespace() -%}
 {%- set suka_nav.rss = namespace() -%}
 {%- set suka_valine_counter.index_post_pv = namespace() -%}
+{%- set suka_valine_counter.site_pv = namespace() -%}
 {%- set suka_vendors.suka = namespace() -%}
 
 {# Sub-Aliases #}
+{%- set suka_busuanzi_site_pv = suka_busuanzi.site_pv -%}
+{%- set suka_busuanzi_site_uv = suka_busuanzi.site_uv -%}
+{%- set suka_comment_changyan = suka_comment.changyan -%}
 {%- set suka_comment_facebook = suka_comment.facebook -%}
 {%- set suka_head_favicon = suka_head.favicon -%}
 {%- set suka_head_site_verification = suka_head.site_verification -%}
@@ -66,6 +77,7 @@
 {%- set suka_nav_share = suka_nav.share -%}
 {%- set suka_nav_rss = suka_nav.rss -%}
 {%- set suka_valine_counter_index_post_pv = suka_valine_counter.index_post_pv -%}
+{%- set suka_valine_counter_site_pv = suka_valine_counter.site_pv -%}
 {%- set suka_vendors_suka = suka_vendors.suka -%}
 
 {# Keywords #}
@@ -106,6 +118,14 @@
 {%- set suka_comment_facebook.ADMIN_FB_USERNAME = config.SUKA_COMMENT_FACEBOOK_ADMIN_FB_USERNAME
   if
     config.SUKA_COMMENT_FACEBOOK_ADMIN_FB_USERNAME is string
+  else
+    None
+-%}
+
+{# comment.changyan.APPID #}
+{%- set suka_comment_changyan.APPID = config.SUKA_COMMENT_CHANGYAN_APPID
+  if
+    config.SUKA_COMMENT_CHANGYAN_APPID is string
   else
     None
 -%}
@@ -158,7 +178,7 @@
     None
 -%}
 
- {# uiux.PRIMARY_COLOR #}
+{# uiux.PRIMARY_COLOR #}
 {%- set suka_uiux.PRIMARY_COLOR = config.SUKA_UIUX_PRIMARY_COLOR
   if
     config.SUKA_UIUX_PRIMARY_COLOR is string
@@ -166,12 +186,92 @@
     None
 -%}
 
- {# busuanzi.ENABLE #}
-{%- set suka_busuanzi.ENABLE = config.SUKA_BUSUANZI_ENABLE
+{# busuanzi.ENABLE #}
+{%- set suka_busuanzi.ENABLE = True
   if
     config.SUKA_BUSUANZI_ENABLE
   else
     False
+-%}
+
+{# busuanzi.site_pv.ENABLE #}
+{%- set suka_busuanzi_site_pv.ENABLE = True
+  if
+    config.SUKA_BUSUANZI_SITE_PV_ENABLE
+  else
+    False
+-%}
+
+{# busuanzi.site_pv.BEFORE #}
+{%- set suka_busuanzi_site_pv.BEFORE = config.SUKA_BUSUANZI_SITE_PV_BEFORE
+  if
+    config.SUKA_BUSUANZI_SITE_PV_BEFORE is string
+  else
+    None
+-%}
+
+{# busuanzi.site_pv.AFTER #}
+{%- set suka_busuanzi_site_pv.AFTER = config.SUKA_BUSUANZI_SITE_PV_AFTER
+  if
+    config.SUKA_BUSUANZI_SITE_PV_AFTER is string
+  else
+    None
+-%}
+
+{# busuanzi.site_pv.DIVIDER #}
+{%- set suka_busuanzi_site_pv.DIVIDER = config.SUKA_BUSUANZI_SITE_PV_DIVIDER
+  if
+    config.SUKA_BUSUANZI_SITE_PV_DIVIDER is string
+  else
+    None
+-%}
+
+{# busuanzi.site_pv.OFFSET #}
+{%- set suka_busuanzi_site_pv.OFFSET = config.SUKA_BUSUANZI_SITE_PV_OFFSET
+  if
+    config.SUKA_BUSUANZI_SITE_PV_OFFSET is number
+  else
+    0
+-%}
+
+{# busuanzi.site_uv.ENABLE #}
+{%- set suka_busuanzi_site_uv.ENABLE = True
+  if
+    config.SUKA_BUSUANZI_SITE_UV_ENABLE
+  else
+    False
+-%}
+
+{# busuanzi.site_uv.BEFORE #}
+{%- set suka_busuanzi_site_uv.BEFORE = config.SUKA_BUSUANZI_SITE_UV_BEFORE
+  if
+    config.SUKA_BUSUANZI_SITE_UV_BEFORE is string
+  else
+    None
+-%}
+
+{# busuanzi.site_uv.AFTER #}
+{%- set suka_busuanzi_site_uv.AFTER = config.SUKA_BUSUANZI_SITE_UV_AFTER
+  if
+    config.SUKA_BUSUANZI_SITE_UV_AFTER is string
+  else
+    None
+-%}
+
+{# busuanzi.site_uv.DIVIDER #}
+{%- set suka_busuanzi_site_uv.DIVIDER = config.SUKA_BUSUANZI_SITE_UV_DIVIDER
+  if
+    config.SUKA_BUSUANZI_SITE_UV_DIVIDER is string
+  else
+    None
+-%}
+
+{# busuanzi.site_uv.OFFSET #}
+{%- set suka_busuanzi_site_uv.OFFSET = config.SUKA_BUSUANZI_SITE_UV_OFFSET
+  if
+    config.SUKA_BUSUANZI_SITE_UV_OFFSET is number
+  else
+    0
 -%}
 
  {# hanabi.ENABLE #}
@@ -315,7 +415,7 @@
   if
     config.SUKA_VENDORS_BUSUANZI is string
   else
-    'https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js'
+    'https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js'
 -%}
 
 {# vendors.HANABI #}
@@ -332,6 +432,30 @@
     config.SUKA_VENDORS_SUKA_HANABI_BROWSER_JS is string
   else
     url_for('static', filename='js/hanabi-browser.min.js')
+-%}
+
+{# vendors.suka.GALLERY_JS #}
+{%- set suka_vendors_suka.GALLERY_JS = config.SUKA_VENDORS_SUKA_GALLERY_JS
+  if
+    config.SUKA_VENDORS_SUKA_GALLERY_JS is string
+  else
+    url_for('static', filename='js/gallery.min.js')
+-%}
+
+{# vendors.LAZYLOAD #}
+{%- set suka_vendors.LAZYLOAD = config.SUKA_VENDORS_LAZYLOAD
+  if
+    config.SUKA_VENDORS_LAZYLOAD is string
+  else
+    url_for('static', filename='lib/vanilla-lazyload/lazyload.min.js')
+-%}
+
+{# vendors.PRETTIFY #}
+{%- set suka_vendors.PRETTIFY = config.SUKA_VENDORS_PRETTIFY
+  if
+    config.SUKA_VENDORS_PRETTIFY is string
+  else
+    url_for('static', filename='lib/prettify/prettify.js')
 -%}
 
 {# search.USE #}
@@ -477,7 +601,71 @@
 {# valine_counter.index_post_pv.ENABLE #}
 {%- set suka_valine_counter_index_post_pv.ENABLE = True
   if
-    config.SUKA_QRCODE_POST_SHARE == True
+    config.SUKA_VALINE_COUNTER_INDEX_POST_PV_ENABLE == True
+  else
+    False
+-%}
+
+{# valine_counter.index_post_pv.BEFORE #}
+{%- set suka_valine_counter_index_post_pv.BEFORE = config.SUKA_VALINE_COUNTER_INDEX_POST_PV_BEFORE
+  if
+    config.SUKA_VALINE_COUNTER_INDEX_POST_PV_BEFORE is string
+  else
+    None
+-%}
+
+{# valine_counter.index_post_pv.AFTER #}
+{%- set suka_valine_counter_index_post_pv.AFTER = config.SUKA_VALINE_COUNTER_INDEX_POST_PV_AFTER
+  if
+    config.SUKA_VALINE_COUNTER_INDEX_POST_PV_AFTER is string
+  else
+    None
+-%}
+
+{# valine_counter.site_pv.ENABLE #}
+{%- set suka_valine_counter_site_pv.ENABLE = True
+  if
+    config.SUKA_VALINE_COUNTER_SITE_PV_ENABLE == True
+  else
+    False
+-%}
+
+{# valine_counter.site_pv.BEFORE #}
+{%- set suka_valine_counter_site_pv.BEFORE = config.SUKA_VALINE_COUNTER_SITE_PV_BEFORE
+  if
+    config.SUKA_VALINE_COUNTER_SITE_PV_BEFORE is string
+  else
+    None
+-%}
+
+{# valine_counter.site_pv.AFTER #}
+{%- set suka_valine_counter_site_pv.AFTER = config.SUKA_VALINE_COUNTER_SITE_PV_AFTER
+  if
+    config.SUKA_VALINE_COUNTER_SITE_PV_AFTER is string
+  else
+    None
+-%}
+
+{# footer.CUSTOM_TEXT #}
+{%- set suka_footer.CUSTOM_TEXT = config.SUKA_FOOTER_CUSTOM_TEXT
+  if
+    config.SUKA_FOOTER_CUSTOM_TEXT is iterable
+  else
+    None
+-%}
+
+{# footer.COPYRIGHT_SINCE #}
+{%- set suka_footer.COPYRIGHT_SINCE = config.SUKA_FOOTER_COPYRIGHT_SINCE
+  if
+    config.SUKA_FOOTER_COPYRIGHT_SINCE is number
+  else
+    0
+-%}
+
+{# prettify.ENABLE #}
+{%- set suka_prettify.ENABLE = True
+  if
+    config.SUKA_PRETTIFY_ENABLE
   else
     False
 -%}

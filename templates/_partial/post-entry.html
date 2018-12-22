@@ -4,7 +4,7 @@
   <div class="columns col-gapless">
     {%- if suka_thumb(post) %}
       <div class="column column-thumbnail col-4 col-lg-12">
-        <a href="{{ post.url }}">
+        <a href="{{ post.url if not post.meta.solitude else suka_thumb(post) }}" {%- if post.meta.solitude %}target="_blank"{%- endif %}>
           <div class="post-thumbnail lazyload" data-src="{{ suka_thumb(post) }}"></div>
         </a>
       </div>

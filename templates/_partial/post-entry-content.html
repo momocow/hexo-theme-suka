@@ -1,14 +1,29 @@
-{%- from 'helpers/config.html' import suka_config with context %}
+{%- from 'helpers/suka_config.html' import suka_config with context %}
 {%- from 'helpers/i18n.html' import i18n with context %}
 {%- from 'helpers/list_categories.html' import list_categories %}
 {%- from 'helpers/post-excerpt.html' import excerpt %}
 
 {% if post.title|trim %}
-    <h2 class="h5 mb-0 card-header"><a class="card-title" href="{{ post.url }}">{{ post.title|trim }}</a></h2>
+    <h2 class="h5 mb-0 card-header">
+        {%- if post.meta.solitude %}
+        <div class="card-title">
+            {{ post.title|trim }}
+        </div>
+        {%- else %}
+        <a class="card-title" href="{{ post.url }}">
+            {{ post.title|trim }}
+        </a>
+        {%- endif %}
+    </h2>
 {% endif %}
 
 <p class="mb-0 card-body">
-    {{ excerpt(post) }}<a href="{{ post.url }}">{{ i18n('post.continue') }}</a>
+    {{ excerpt(post) }}
+    {%- if post.has_more_content %}
+    <a href="{{ post.url }}">
+        {{ i18n('post.continue') }}
+    </a>
+    {%- endif %}
 </p>
 
 

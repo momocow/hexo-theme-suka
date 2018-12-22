@@ -1,0 +1,24 @@
+{%- from 'helpers/suka_config.html' import suka_config with context -%}
+
+{%- if suka_config.busuanzi.site_uv.ENABLE %}
+  <!-- Busuanzi User Views -->
+  <span id="busuanzi_container_site_uv" hidden>
+    <span>{{ suka_config.busuanzi.site_uv.BEFORE|safe }}</span>
+    <span id="busuanzi_value_site_uv"></span>
+    <span>{{ suka_config.busuanzi.site_uv.AFTER|safe }}</span>
+    {%- if suka_config.busuanzi.site_uv.DIVIDER %}
+      <span>{{ suka_config.busuanzi.site_uv.DIVIDER|safe }}</span>
+    {%- endif %}
+  </span>
+{%- endif %}
+{%- if suka_config.busuanzi.site_pv.ENABLE %}
+  <!-- Busuanzi Post Views -->
+  <span id="busuanzi_container_site_pv" hidden>
+    <span>{{ suka_config.busuanzi.site_pv.BEFORE|safe }}</span>
+    <span id="busuanzi_value_site_pv"></span>
+    <span>{{ suka_config.busuanzi.site_pv.AFTER|safe }}</span>
+    {%- if suka_config.busuanzi.site_pv.DIVIDER %}
+      <span>{{ suka_config.busuanzi.site_pv.DIVIDER|safe }}</span>
+    {%- endif %}
+  </span>
+{%- endif %}

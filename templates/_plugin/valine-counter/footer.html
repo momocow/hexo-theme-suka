@@ -1,0 +1,8 @@
+{%- from 'helpers/config.html' import suka_config with context -%}
+{%- from 'helpers/url.html' import home_url with context -%}
+
+<span id="{{ home_url }}" class="leancloud-visitors" data-flag-title="{{ site.title }}">
+    <span>{{ suka_config.valine_counter.site_pv.BEFORE|safe }}</span><!--
+ --><span class="leancloud-visitors-count">0</span><!--
+ --><span>{{ suka_config.valine_counter.site_pv.AFTER|safe }}</span>
+</span>

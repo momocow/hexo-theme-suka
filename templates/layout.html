@@ -1,5 +1,5 @@
 {%- from 'helpers/here.html' import here with context -%}
-{%- from 'helpers/config.html' import suka_config with context -%}
+{%- from 'helpers/suka_config.html' import suka_config with context -%}
 
 <!DOCTYPE html>
 <html {%- if site.language %} lang="{{ site.language }}" {%- endif %}>
@@ -27,12 +27,12 @@
     {%- block body %}{% endblock %}
 
     {%- block footer %}
-      {# {%- include ['custom/footer.html', 'footer.html'] ignore missing %} #}
+      {%- include ['custom/footer.html', '_partial/footer.html'] ignore missing %}
     {%- endblock %}
   {%- endif %}
 
   {%- block foot %}
-    {# {%- include ['custom/foot.html', 'foot.html'] ignore missing %} #}
+    {%- include ['custom/foot.html', '_partial/source/footer.html'] ignore missing %}
   {%- endblock %}
 </body>
 </html>
