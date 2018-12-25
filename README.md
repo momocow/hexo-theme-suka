@@ -70,6 +70,9 @@ Options for `SUKA_COMMENT_USE`
 - Only Atom RSS is supported.
 - QRCode generation is not supported yet.
 - Boolean, `solitude`, in post meta can make a post not explicitly linked from index page.
+- TOC still has some problems porting to Veripress, so not supported yet.
+- Headless posts (posts w/o titles) is not supported since Veripress RSS requires post titles.
+- Changyan THREAD_KEY_TYPE, "id", is not supported.
 
 ### Additional functions to Veripress
 - Post thumbnail.

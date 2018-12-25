@@ -1,0 +1,25 @@
+{%- from 'helpers/suka_config.html' import suka_config with context -%}
+{%- from 'helpers/url.html' import full_url with context -%}
+
+<div id="disqus_thread"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/disqusjs@1.0.6/dist/disqus.js"></script>
+
+<script>
+var dsqjs = new DisqusJS({
+    shortname: '{{ suka_config.comment.disqusjs.SHORTNAME }}',
+    {%- if suka_config.comment.disqusjs.SITENAME %}
+    siteName: '{{ suka_config.comment.disqusjs.SITENAME }}',
+    {%- endif %}
+    identifier: '{{ full_url }}',
+    url: '{{ full_url }}',
+    api: '{{ suka_config.comment.disqusjs.API }}',
+    apikey: '{{ suka_config.comment.disqusjs.APIKEY }}',
+    {%- if suka_config.comment.disqusjs.ADMIN %}
+    admin: '{{ theme.comment.disqusjs.ADMIN }}',
+    {%- endif %}
+    {%- if suka_config.comment.disqusjs.ADMINLABEL %}
+    adminLabel: '{{ theme.comment.disqusjs.ADMINLABEL }}'
+    {%- endif %}
+});
+</script>

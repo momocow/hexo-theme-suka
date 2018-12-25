@@ -1,0 +1,19 @@
+{%- set _nsp = namespace() -%}
+
+{%- for post in storage.get_posts() -%}
+  {%- if _nsp._next_post -%}
+    {%- set _nsp.next_post = post -%}
+    {%- set _nsp._next_post = False -%}
+  {%- endif -%}
+
+  {%- if post.unique_key == entry.unique_key -%}
+    {%- if _nsp._prev_post -%}
+      {%- set _nsp.prev_post = _nsp._prev_post -%}
+    {%- endif -%}
+    {%- set _nsp._next_post = True -%}
+  {%- endif -%}
+  {%- set _nsp._prev_post = post -%}
+{%- endfor -%}
+
+{%- set suka_next_post = _nsp.next_post or None -%}
+{%- set suka_prev_post = _nsp.prev_post or None -%}

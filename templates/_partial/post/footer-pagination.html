@@ -1,0 +1,25 @@
+{%- from 'helpers/suka_rel_post.html' import suka_next_post, suka_prev_post with context -%}
+
+<div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    {%- if suka_prev_post %}
+        <li class="page-item page-prev">
+            <a href="{{ '/post/' + suka_prev_post.rel_url }}">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">{{ suka_prev_post.title }}</div>
+            </a>
+        </li>
+    {%- endif %}
+
+    <!-- Next Nav -->
+    {%- if suka_next_post %}
+        <li class="page-item page-next">
+            <a href="{{ '/post/' + suka_next_post.rel_url }}">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">{{ suka_next_post.title }}</div>
+            </a>
+        </li>
+    {%- endif %}
+</ul>
+</div>

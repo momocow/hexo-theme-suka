@@ -18,8 +18,6 @@ KEYWORDS = [
 ]
 
 # veripress-theme-suka
-SUKA_COMMENT_USE = 'disqus'
-SUKA_COMMENT_DISQUS_SHORT_NAME = '987654321'
 SUKA_POST_ENTRY_EXCERPT = 120
 SUKA_READ_MORE = 'READ MORE'
 SUKA_AVATAR = 'img/default_avatar.png'

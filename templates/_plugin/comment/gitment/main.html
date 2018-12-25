@@ -1,5 +1,7 @@
+{%- from 'helpers/suka_config.html' import suka_config with context -%}
+
 <div id="gitment-comment">
-    <%- partial('_widget/comment/' + theme.comment.use + '/main') %>
+    {# <%- partial('_widget/comment/' + theme.comment.use + '/main') %> #}
 </div>
 <style>
     #gitment-comment{
@@ -12,11 +14,11 @@
 <script>
     var gitment = new Gitment({
         id: window.location.pathname,
-        owner: '<%= theme.comment.gitment.owner %>',
-        repo: '<%= theme.comment.gitment.repo %>',
+        owner: '{{ suka_config.comment.gitment.OWNER }}',
+        repo: '{{ suka_config.comment.gitment.REPO }}',
         oauth: {
-            client_id: '<%= theme.comment.gitment.client_id %>',
-            client_secret: '<%= theme.comment.gitment.client_secret %>',
+            client_id: '{{ suka_config.comment.gitment.CLIENT_ID }}',
+            client_secret: '{{ suka_config.comment.gitment.CLIENT_SECRET }}',
         },
     })
     gitment.render('container')

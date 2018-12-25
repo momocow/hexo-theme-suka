@@ -1,0 +1,9 @@
+{%- from 'helper/suka_config.html' import suka_config with context %}
+{%- from 'helper/url.html' import full_url with context %}
+
+<div class="fb-comments"
+  data-href="{{ full_url }}"
+  data-numposts="{{ suka_config.comment.facebook.NUM_POSTS }}"
+  data-colorscheme="{{ suka_config.comment.facebook.COLOR_SCHEME }}"
+  data-order-by="{{ suka_config.comment.facebook.ORDER_BY }}">
+</div>

@@ -55,7 +55,12 @@
 {%- set suka_busuanzi.site_pv = namespace() -%}
 {%- set suka_busuanzi.site_uv = namespace() -%}
 {%- set suka_comment.changyan = namespace() -%}
+{%- set suka_comment.disqusjs = namespace() -%}
 {%- set suka_comment.facebook = namespace() -%}
+{%- set suka_comment.gitalk = namespace() -%}
+{%- set suka_comment.gitment = namespace() -%}
+{%- set suka_comment.livere = namespace() -%}
+{%- set suka_comment.valine = namespace() -%}
 {%- set suka_head.favicon = namespace() -%}
 {%- set suka_head.site_verification = namespace() -%}
 {%- set suka_nav.home = namespace() -%}
@@ -73,7 +78,12 @@
 {%- set suka_busuanzi_site_pv = suka_busuanzi.site_pv -%}
 {%- set suka_busuanzi_site_uv = suka_busuanzi.site_uv -%}
 {%- set suka_comment_changyan = suka_comment.changyan -%}
+{%- set suka_comment_disqusjs = suka_comment.disqusjs -%}
 {%- set suka_comment_facebook = suka_comment.facebook -%}
+{%- set suka_comment_gitalk = suka_comment.gitalk -%}
+{%- set suka_comment_gitment = suka_comment.gitment -%}
+{%- set suka_comment_livere = suka_comment.livere -%}
+{%- set suka_comment_valine = suka_comment.valine -%}
 {%- set suka_head_favicon = suka_head.favicon -%}
 {%- set suka_head_site_verification = suka_head.site_verification -%}
 {%- set suka_nav_home = suka_nav.home -%}
@@ -128,12 +138,236 @@
     None
 -%}
 
+{# comment.facebook.NUM_POSTS #}
+{%- set suka_comment_facebook.NUM_POSTS = config.SUKA_COMMENT_FACEBOOK_NUM_POSTS
+  if
+    config.SUKA_COMMENT_FACEBOOK_NUM_POSTS is string
+  else
+    None
+-%}
+
+{# comment.facebook.COLOR_SCHEME #}
+{%- set suka_comment_facebook.COLOR_SCHEME = config.SUKA_COMMENT_FACEBOOK_COLOR_SCHEME
+  if
+    config.SUKA_COMMENT_FACEBOOK_COLOR_SCHEME is string
+  else
+    None
+-%}
+
+{# comment.facebook.ORDER_BY #}
+{%- set suka_comment_facebook.ORDER_BY = config.SUKA_COMMENT_FACEBOOK_ORDER_BY
+  if
+    config.SUKA_COMMENT_FACEBOOK_ORDER_BY is string
+  else
+    None
+-%}
+
+{# comment.gitalk.CLIENT_ID #}
+{%- set suka_comment_gitalk.CLIENT_ID = config.SUKA_COMMENT_GITALK_CLIENT_ID
+  if
+    config.SUKA_COMMENT_GITALK_CLIENT_ID is string
+  else
+    None
+-%}
+
+{# comment.gitalk.CLIENT_SECRET #}
+{%- set suka_comment_gitalk.CLIENT_SECRET = config.SUKA_COMMENT_GITALK_CLIENT_SECRET
+  if
+    config.SUKA_COMMENT_GITALK_CLIENT_SECRET is string
+  else
+    None
+-%}
+
+{# comment.gitalk.REPO #}
+{%- set suka_comment_gitalk.REPO = config.SUKA_COMMENT_GITALK_REPO
+  if
+    config.SUKA_COMMENT_GITALK_REPO is string
+  else
+    None
+-%}
+
+{# comment.gitalk.OWNER #}
+{%- set suka_comment_gitalk.OWNER = config.SUKA_COMMENT_GITALK_OWNER
+  if
+    config.SUKA_COMMENT_GITALK_OWNER is string
+  else
+    None
+-%}
+
+{# comment.gitment.CLIENT_ID #}
+{%- set suka_comment_gitment.CLIENT_ID = config.SUKA_COMMENT_GITMENT_CLIENT_ID
+  if
+    config.SUKA_COMMENT_GITMENT_CLIENT_ID is string
+  else
+    None
+-%}
+
+{# comment.gitment.CLIENT_SECRET #}
+{%- set suka_comment_gitment.CLIENT_SECRET = config.SUKA_COMMENT_GITMENT_CLIENT_SECRET
+  if
+    config.SUKA_COMMENT_GITMENT_CLIENT_SECRET is string
+  else
+    None
+-%}
+
+{# comment.gitment.REPO #}
+{%- set suka_comment_gitment.REPO = config.SUKA_COMMENT_GITMENT_REPO
+  if
+    config.SUKA_COMMENT_GITMENT_REPO is string
+  else
+    None
+-%}
+
+{# comment.gitment.OWNER #}
+{%- set suka_comment_gitment.OWNER = config.SUKA_COMMENT_GITMENT_OWNER
+  if
+    config.SUKA_COMMENT_GITMENT_OWNER is string
+  else
+    None
+-%}
+
 {# comment.changyan.APPID #}
 {%- set suka_comment_changyan.APPID = config.SUKA_COMMENT_CHANGYAN_APPID
   if
     config.SUKA_COMMENT_CHANGYAN_APPID is string
   else
     None
+-%}
+
+{# comment.changyan.CONF #}
+{%- set suka_comment_changyan.CONF = config.SUKA_COMMENT_CHANGYAN_CONF
+  if
+    config.SUKA_COMMENT_CHANGYAN_CONF is string
+  else
+    None
+-%}
+
+{# comment.disqusjs.SHORTNAME #}
+{%- set suka_comment_disqusjs.SHORTNAME = config.SUKA_COMMENT_DISQUSJS_SHORTNAME
+  if
+    config.SUKA_COMMENT_DISQUSJS_SHORTNAME is string
+  else
+    None
+-%}
+
+{# comment.disqusjs.SITENAME #}
+{%- set suka_comment_disqusjs.SITENAME = config.SUKA_COMMENT_DISQUSJS_SITENAME
+  if
+    config.SUKA_COMMENT_DISQUSJS_SITENAME is string
+  else
+    None
+-%}
+
+{# comment.disqusjs.API #}
+{%- set suka_comment_disqusjs.API = config.SUKA_COMMENT_DISQUSJS_API
+  if
+    config.SUKA_COMMENT_DISQUSJS_API is string
+  else
+    None
+-%}
+
+{# comment.disqusjs.APIKEY #}
+{%- set suka_comment_disqusjs.APIKEY = config.SUKA_COMMENT_DISQUSJS_APIKEY
+  if
+    config.SUKA_COMMENT_DISQUSJS_APIKEY is string
+  else
+    None
+-%}
+
+{# comment.disqusjs.ADMIN #}
+{%- set suka_comment_disqusjs.ADMIN = config.SUKA_COMMENT_DISQUSJS_ADMIN
+  if
+    config.SUKA_COMMENT_DISQUSJS_ADMIN is string
+  else
+    None
+-%}
+
+{# comment.disqusjs.ADMIN_LABEL #}
+{%- set suka_comment_disqusjs.ADMIN_LABEL = config.SUKA_COMMENT_DISQUSJS_ADMIN_LABEL
+  if
+    config.SUKA_COMMENT_DISQUSJS_ADMIN_LABEL is string
+  else
+    None
+-%}
+
+{# comment.livere.DATA_UID #}
+{%- set suka_comment_livere.DATA_UID = config.SUKA_COMMENT_LIVERE_DATA_UID
+  if
+    config.SUKA_COMMENT_LIVERE_DATA_UID is string
+  else
+    None
+-%}
+
+{# comment.valine.GUEST_INFO #}
+{%- set suka_comment_valine.GUEST_INFO = config.SUKA_COMMENT_VALINE_GUEST_INFO
+  if
+    config.SUKA_COMMENT_VALINE_GUEST_INFO is string
+  else
+    None
+-%}
+
+{# comment.valine.LEANCLOUD_APPID #}
+{%- set suka_comment_valine.LEANCLOUD_APPID = config.SUKA_COMMENT_VALINE_LEANCLOUD_APPID
+  if
+    config.SUKA_COMMENT_VALINE_LEANCLOUD_APPID is string
+  else
+    None
+-%}
+
+{# comment.valine.LEANCLOUD_APPKEY #}
+{%- set suka_comment_valine.LEANCLOUD_APPKEY = config.SUKA_COMMENT_VALINE_LEANCLOUD_APPKEY
+  if
+    config.SUKA_COMMENT_VALINE_LEANCLOUD_APPKEY is string
+  else
+    None
+-%}
+
+{# comment.valine.PLACEHOLDER #}
+{%- set suka_comment_valine.PLACEHOLDER = config.SUKA_COMMENT_VALINE_PLACEHOLDER
+  if
+    config.SUKA_COMMENT_VALINE_PLACEHOLDER is string
+  else
+    None
+-%}
+
+{# comment.valine.PAGE_SIZE #}
+{%- set suka_comment_valine.PAGE_SIZE = config.SUKA_COMMENT_VALINE_PAGE_SIZE
+  if
+    config.SUKA_COMMENT_VALINE_PAGE_SIZE is string
+  else
+    None
+-%}
+
+{# comment.valine.AVATAR #}
+{%- set suka_comment_valine.AVATAR = config.SUKA_COMMENT_VALINE_AVATAR
+  if
+    config.SUKA_COMMENT_VALINE_AVATAR is string
+  else
+    None
+-%}
+
+{# comment.valine.LANG #}
+{%- set suka_comment_valine.LANG = config.SUKA_COMMENT_VALINE_LANG
+  if
+    config.SUKA_COMMENT_VALINE_LANG is string
+  else
+    None
+-%}
+
+{# comment.VALINE_NOTIFY #}
+{%- set suka_comment.VALINE_NOTIFY = True
+  if
+    config.SUKA_COMMENT_VALINE_NOTIFY
+  else
+    False
+-%}
+
+{# comment.VALINE_VERIFY #}
+{%- set suka_comment.VALINE_VERIFY = True
+  if
+    config.SUKA_COMMENT_VALINE_VERIFY
+  else
+    False
 -%}
 
 {# POST_ENTRY_EXCERPT #}

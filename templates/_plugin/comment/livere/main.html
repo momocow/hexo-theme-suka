@@ -1,4 +1,5 @@
-<div id="lv-container" data-id="city" data-uid="<%= theme.comment.livere.data_uid %>">
+{%- from 'helpers/suka_config.html' import suka_config with context -%}
+<div id="lv-container" data-id="city" data-uid="{{ suka_config.comment.livere.DATA_UID }}">
     <script id="livere-comment-js">
     (function(d, s) {
        var j, e = d.getElementsByTagName(s)[0];
