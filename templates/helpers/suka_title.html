@@ -8,3 +8,7 @@
 {%- else %}
   {%- set suka_title = '%s: %s' % (i18n(archive_type|lower), archive_name) %}
 {%- endif %}
+
+{%- if suka_title|length > 0 %}
+  {%- set suka_title = suka_title + ' | ' %}
+{%- endif %}

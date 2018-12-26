@@ -23,3 +23,5 @@ SUKA_READ_MORE = 'READ MORE'
 SUKA_AVATAR = 'img/default_avatar.png'
 SUKA_DATE_FORMAT = '%Y-%m-%d'
 SUKA_UIUX_SLOGAN = 'My Slogan'
+SUKA_NAV_SEARCH_USE = True
+SUKA_NAV_SEARCH_LINK = '/_search'

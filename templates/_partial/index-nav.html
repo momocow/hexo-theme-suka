@@ -9,8 +9,8 @@
   {%- if suka_config.nav.archives.USE %}
     <a href="{{ url_for('.archive') }}" class="navbar-link">{{ i18n('archive') }}</a>
   {%- endif %}
-  {%- if suka_config.nav.search.USE %}
-    <a href="<%= theme.nav.search.link %>" class="navbar-link">{{ i18n('search.main') }}</a>
+  {%- if not config.GENERATING_STATIC_PAGES and suka_config.nav.search.USE %}
+    <a href="{{ suka_config.nav.search.LINK }}" class="navbar-link">{{ i18n('search.main') }}</a>
   {%- endif %}
   {%- for page in suka_config.nav.PAGES %}
     <a href="{{ page.link }}" class="navbar-link">{{ loop.index }}</a>

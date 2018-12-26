@@ -73,6 +73,8 @@ Options for `SUKA_COMMENT_USE`
 - TOC still has some problems porting to Veripress, so not supported yet.
 - Headless posts (posts w/o titles) is not supported since Veripress RSS requires post titles.
 - Changyan THREAD_KEY_TYPE, "id", is not supported.
+- Searching is only supported when Veripress serves as the backend.
+- Use the `searchbar` layout as the template of your custom search page.
 
 ### Additional functions to Veripress
 - Post thumbnail.

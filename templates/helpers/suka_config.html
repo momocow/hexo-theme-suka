@@ -706,6 +706,14 @@
     url_for('static', filename='js/gallery.min.js')
 -%}
 
+{# vendors.suka.LOCAL_SEARCH_JS #}
+{%- set suka_vendors_suka.LOCAL_SEARCH_JS = config.SUKA_VENDORS_SUKA_LOCAL_SEARCH_JS
+  if
+    config.SUKA_VENDORS_SUKA_LOCAL_SEARCH_JS is string
+  else
+    url_for('static', filename='js/local-search.min.js')
+-%}
+
 {# vendors.LAZYLOAD #}
 {%- set suka_vendors.LAZYLOAD = config.SUKA_VENDORS_LAZYLOAD
   if
@@ -735,10 +743,6 @@
   if
     config.SUKA_NAV_SEARCH_LINK is string
   else
-    url_for('.search')
-  if
-    suka_search.USE == 'local'
-  else
     None
 -%}
 
@@ -759,11 +763,19 @@
 -%}
 
 {# nav.search.USE #}
-{%- set suka_nav_search.USE = False
+{%- set suka_nav_search.USE = True
   if
-    config.SUKA_NAV_SEARCH_USE == False
+    config.SUKA_NAV_SEARCH_USE
   else
-    True
+    False
+-%}
+
+{# nav.search.SWIFTYPE_KEY #}
+{%- set suka_nav_search.SWIFTYPE_KEY = config.SUKA_NAV_SEARCH_SWIFTYPE_KEY
+  if
+    config.SUKA_NAV_SEARCH_SWIFTYPE_KEY is string
+  else
+    None
 -%}
 
 {# nav.share.USE #}
