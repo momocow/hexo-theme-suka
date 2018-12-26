@@ -1,7 +1,0 @@
-{%- from 'helpers/suka_config.html' import suka_config with context -%}
-
-{%- if entry and entry.tags -%}
-  {%- set suka_tags = suka_config.KEYWORDS + entry.tags -%}
-{%- else -%}
-  {%- set suka_tags = suka_config.KEYWORDS -%}
-{%- endif -%}

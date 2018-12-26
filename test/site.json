@@ -1,9 +1,0 @@
-{
-  "title": "Demo",
-  "subtitle": "Yet another VeriPress blog.",
-  "author": "Someone",
-  "email": "someone@example.com",
-  "root_url": "https://example.com",
-  "timezone": "UTC+00:00",
-  "language": "zh_TW"
-}
