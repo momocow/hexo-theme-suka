@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title type="text">Demo</title>
+  <id>https://example.com/veripress-theme-suka/feed.xml</id>
+  <updated>2018-12-24T14:35:10+00:00</updated>
+  <link href="https://example.com/veripress-theme-suka" />
+  <link href="https://example.com/veripress-theme-suka/feed.xml" rel="self" />
+  <author>
+    <name>Someone</name>
+  </author>
+  <subtitle type="text">Yet another VeriPress blog.</subtitle>
+  <generator>Werkzeug</generator>
+  <entry xml:base="https://example.com/veripress-theme-suka/feed.xml">
+    <title type="text">Thumbnail supported</title>
+    <id>/post/2018/12/24/Thumbnail post/</id>
+    <updated>2018-12-24T14:35:10+00:00</updated>
+    <published>2018-12-24T14:35:10+00:00</published>
+    <link href="https://example.com/veripress-theme-suka/post/2018/12/24/Thumbnail post/" />
+    <author>
+      <name>Someone</name>
+    </author>
+    <content type="html">&lt;p&gt;This is a post with a thumbnail!&lt;/p&gt;</content>
+  </entry>
+  <entry xml:base="https://example.com/veripress-theme-suka/feed.xml">
+    <title type="text">Solitude Post</title>
+    <id>/post/2018/12/22/Solitude post/</id>
+    <updated>2018-12-22T14:35:10+00:00</updated>
+    <published>2018-12-22T14:35:10+00:00</published>
+    <link href="https://example.com/veripress-theme-suka/post/2018/12/22/Solitude post/" />
+    <author>
+      <name>Someone</name>
+    </author>
+    <content type="html">&lt;p&gt;This is a solitude post!&lt;/p&gt;</content>
+  </entry>
+  <entry xml:base="https://example.com/veripress-theme-suka/feed.xml">
+    <title type="text">Hello, world!</title>
+    <id>/post/2018/12/17/hello-world/</id>
+    <updated>2018-12-17T16:36:10+00:00</updated>
+    <published>2018-12-17T16:36:10+00:00</published>
+    <link href="https://example.com/veripress-theme-suka/post/2018/12/17/hello-world/" />
+    <author>
+      <name>Someone</name>
+    </author>
+    <content type="html">&lt;p&gt;This is the hello world post!&lt;/p&gt;
+&lt;h1&gt;Hello!&lt;/h1&gt;
+&lt;h2&gt;Hello!&lt;/h2&gt;
+&lt;h3&gt;Hello!&lt;/h3&gt;
+&lt;h4&gt;Hello!&lt;/h4&gt;
+&lt;h5&gt;Hello!&lt;/h5&gt;
+&lt;h6&gt;Hello!&lt;/h6&gt;
+&lt;blockquote&gt;
+&lt;h2&gt;Hello!&lt;/h2&gt;
+&lt;p&gt;hello&lt;/p&gt;
+&lt;/blockquote&gt;</content>
+  </entry>
+</feed>
