@@ -1,11 +1,35 @@
 {%- from 'helpers/suka_config.html' import suka_config with context -%}
+{%- from 'helpers/i18n.html' import i18n with context %}
 
 {%- macro excerpt(post) -%}
-  {%- if post %}
-    {%- if post.preview|trim -%}
-      {{ post.preview|safe }}
+  {%- if post -%}
+    {%- if post.meta.solitude -%}
+      <div style="padding-left: 16px; padding-top: 12px;">
+        {%- if post.preview -%}
+          {{ post.preview|safe }}
+        {%- else -%}
+          {{ post.content|safe }}
+        {%- endif -%}
+      </div>
     {%- else -%}
-      {{ post.content|striptags|truncate(suka_config.POST_ENTRY_EXCERPT) }}
+      {%- if post.preview -%}
+        {{ post.preview|striptags|truncate(suka_config.POST_ENTRY_EXCERPT) }}
+      {%- else -%}
+        {{ post.content|striptags|truncate(suka_config.POST_ENTRY_EXCERPT) }}
+      {%- endif -%}
     {%- endif -%}
   {%- endif -%}
+{%- endmacro -%}
+
+{%- macro post_continue(post) -%}
+  {%- if post -%}
+    {%- if post.preview -%}
+      {%- set has_more = post.preview|striptags|length > suka_config.POST_ENTRY_EXCERPT or post.has_more_content -%}
+    {%- else -%}
+      {%- set has_more = post.content|striptags|length > suka_config.POST_ENTRY_EXCERPT -%}
+    {%- endif -%}
+  {%- endif -%}
+  <a href="{{ post.url }}">
+    {{ i18n('post.continue') if has_more and not post.meta.solitude else '' }}
+  </a>
 {%- endmacro -%}

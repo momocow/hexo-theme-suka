@@ -1,7 +1,6 @@
 {%- from 'helpers/suka_config.html' import suka_config with context %}
-{%- from 'helpers/i18n.html' import i18n with context %}
 {%- from 'helpers/list_categories.html' import list_categories %}
-{%- from 'helpers/post-excerpt.html' import excerpt %}
+{%- from 'helpers/post-excerpt.html' import excerpt, post_continue with context %}
 
 {% if post.title|trim %}
     <h2 class="h5 mb-0 card-header">
@@ -18,12 +17,7 @@
 {% endif %}
 
 <p class="mb-0 card-body">
-    {{ excerpt(post) }}
-    {%- if post.has_more_content %}
-    <a href="{{ post.url }}">
-        {{ i18n('post.continue') }}
-    </a>
-    {%- endif %}
+    {{ excerpt(post) }} {{ post_continue(post) }}
 </p>
 
 

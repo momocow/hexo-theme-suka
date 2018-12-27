@@ -1,0 +1,18 @@
+{%- from 'helpers/i18n.html' import i18n with context %}
+<div class="container" style="overflow: hidden;">
+  <div class="main-container">
+    <main>
+      <!-- # Title # -->
+      <h2 class="page-title">{{ i18n("category") + " : " + archive_name }}</h2>
+      <!-- # Post List # -->
+      <div class="post-stream-container">
+        {%- for post in entries %}
+          <div class="grid-item">
+            {%- include '_partial/post-entry.html' %}
+          </div>
+        {%- endfor %}
+      </div>
+    </main>
+    {%- include '_partial/pagination.html' %}
+  </div>
+</div>

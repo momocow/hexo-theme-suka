@@ -539,7 +539,7 @@
 -%}
 
  {# hanabi.ENABLE #}
-{%- set suka_hanabi.ENABLE = config.SUKA_HANABI_ENABLE
+{%- set suka_hanabi.ENABLE = True
   if
     config.SUKA_HANABI_ENABLE
   else
@@ -728,6 +728,14 @@
     config.SUKA_VENDORS_PRETTIFY is string
   else
     url_for('static', filename='lib/prettify/prettify.js')
+-%}
+
+{# vendors.PRETTIFY_THEME #}
+{%- set suka_vendors.PRETTIFY_THEME = config.SUKA_VENDORS_PRETTIFY_THEME
+  if
+    config.SUKA_VENDORS_PRETTIFY_THEME is string
+  else
+    None
 -%}
 
 {# search.USE #}
@@ -966,6 +974,22 @@
 {%- set suka_prettify.ENABLE = True
   if
     config.SUKA_PRETTIFY_ENABLE
+  else
+    False
+-%}
+
+{# prettify.THEME #}
+{%- set suka_prettify.THEME = config.SUKA_PRETTIFY_THEME
+  if
+    config.SUKA_PRETTIFY_THEME is string
+  else
+    None
+-%}
+
+{# prettify.LINENUMBER #}
+{%- set suka_prettify.LINENUMBER = True
+  if
+    config.SUKA_PRETTIFY_LINENUMBER
   else
     False
 -%}

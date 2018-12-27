@@ -10,3 +10,18 @@
 {%- if suka_config.comment.USE == 'disqusjs' and here == 'post' %}
   {% include '_plugin/comment/disqusjs/common_head.html' %}
 {%- endif %}
+
+{# <% if (config.suka_theme.prism.enable === true) { %>
+    <!-- prism.css -->
+    <%- partial('_plugin/highlight/prism/common') %>
+<% } %> #}
+
+{%- if suka_config.prettify.ENABLE %}
+  <!-- Prettify Theme -->
+  {%- include '_plugin/highlight/prettify/theme.html' %}
+{%- endif %}
+
+{# <% if (config.highlight.enable === true) { %>
+    <!-- Prettify Theme -->
+    <%- partial('_plugin/highlight/hexo-hljs/theme') %>
+<% } %> #}

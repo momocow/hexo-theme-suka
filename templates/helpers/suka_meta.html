@@ -2,11 +2,19 @@
 
 {%- macro suka_thumb(entity) -%}
 {{
-  full_url_for(entity.meta.thumbnail)
+  entity.meta.thumbnail
+  if
+    entity and entity.meta and entity.meta.thumbnail and entity.meta.thumbnail.startswith('http')
+  else
+    url_for('static', filename=entity.meta.thumbnail)
   if
     entity and entity.meta and entity.meta.thumbnail
   else
-    full_url_for(entry.meta.thumbnail)
+    entry.meta.thumbnail
+  if
+    entry and entry.meta and entry.meta.thumbnail and entry.meta.thumbnail.startswith('http')
+  else
+    url_for('static', filename=entry.meta.thumbnail)
   if
     entry and entry.meta and entry.meta.thumbnail
   else
