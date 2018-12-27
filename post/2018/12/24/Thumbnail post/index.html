@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh_TW">
+<html lang="en_US">
 <head>
   
     
@@ -51,11 +51,11 @@
   }
 
   a, a:visited {
-    color: #0070ff;
+    color: #1BA1E6;
   }
 
   a:active, a:focus, a:hover {
-    color: #0070ff;
+    color: #1BA1E6;
     opacity: .75;
   }
 
@@ -63,26 +63,26 @@
   #post-content a:hover,
   #post-content a:focus,
   #post-content a:visited {
-    color: #005eb9;
+    color: #1BA1E6;
     opacity: 1;
   }
 
   .post-entry .card-body a {
-    color: #0070ff;
+    color: #1AAB8E;
   }
 
   .avatar {
-    background: #444;
+    background: #1AAB8E;
   }
 
   .navbar-link,
   .navbar-link:visited,
   .timeline .timeline-item .timeline-icon.icon-lg {
-    color: #0070ff;
+    color: #1AAB8E;
   }
 
   .navbar-link:hover {
-    color: #0070ff;
+    color: #1AAB8E;
     opacity: .8;
   }
 
@@ -90,15 +90,15 @@
   #disqus_click_btn,
   #disqus-switch-to-direct,
   #disqus-loadmore-button {
-    background: #727e96;
-    border-color: #727e96;
+    background: #1AAB8E;
+    border-color: #1AAB8E;
     color: #fff;
   }
 
   #post-toc a.post-toc-link,
   #post-toc a.post-toc-link:visited,
   .share-menu.menu .menu-item>a {
-    color: #727e96;
+    color: #1AAB8E;
   }
 
   .share-menu.menu .menu-item>a:hover,
@@ -111,6 +111,10 @@
 </style>
 
 <link rel="stylesheet" href="/veripress-theme-suka/static/css/style.min.css">
+
+
+
+
 
 <!-- ### Site Verification ### -->
 
@@ -135,7 +139,7 @@
 <meta property="og:title" content="Thumbnail supported | Demo">
 <meta property="og:site_name" content="Demo">
 
-<meta property="og:locale" content="zh_TW">
+<meta property="og:locale" content="en_US">
 
 <meta property="og:url" content="https://example.com/post/2018/12/24/Thumbnail post/">
 <meta property="og:image" content="https://i1.wp.com/pic4.zhimg.com/v2-dc91624a6eca9ae4e8e102f0a03ffe78.jpg?h=250">
@@ -190,14 +194,25 @@
     },
     "potentialAction": {
         "@type": "SearchAction",
-        "target": "/veripress-theme-suka/?q={search_term_string}",
+        "target": "https://example.com/_search?q={search_term_string}",
         "query-input": "required name=search_term_string"
     },
     "keywords": "example,demo,suka,veripress,theme,Test",
     "description": "This is a post with a thumbnail!"
 }
 </script>
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/PhilipTrauner/pygments-github-css@master/github.css" />
+
+<style>
+#post-content .highlight pre {
+  background-color: #f6f8fa !important;
+  border-radius: 3px;
+  font-size: 85%;
+  line-height: 1.45;
+  overflow: auto;
+  padding: 16px;
+}
+</style>
   
 </head>
 <body><!-- ## Header ##-->
@@ -207,8 +222,8 @@
     <p class="text-center header-slogan">
         My Slogan
     </p><nav class="navbar-section text-center">
-    <a href="/veripress-theme-suka/" class="navbar-link">首頁</a>
-    <a href="/veripress-theme-suka/archive/" class="navbar-link">歸檔</a><div class="dropdown dropdown-right">
+    <a href="/veripress-theme-suka/" class="navbar-link">Home</a>
+    <a href="/veripress-theme-suka/archive/" class="navbar-link">Archive</a><div class="dropdown dropdown-right">
     <a class="navbar-link dropdown-toggle" tabindex="0">Share</a>
     <ul class="menu share-menu">
 
@@ -340,6 +355,12 @@
         </div><div class="post-nav px-2 bg-gray">
 <ul class="pagination">
     <!-- Prev Nav -->
+        <li class="page-item page-prev">
+            <a href="/post/2018/12/27/Markdown-style-demo/">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Markdown style demo</div>
+            </a>
+        </li>
 
     <!-- Next Nav -->
         <li class="page-item page-next">

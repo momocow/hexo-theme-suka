@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh_TW">
+<html lang="en_US">
 <head>
   
     
@@ -22,7 +22,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 
 <!-- Title -->
-<title>歸檔: 2018.12 | Demo</title>
+<title>Archive: 2018.12 | Demo</title>
 
 <!-- favicon -->
 <link rel="shortcut icon" type="image/x-icon" href="/veripress-theme-suka/static/img/suka-favicon.ico">
@@ -51,11 +51,11 @@
   }
 
   a, a:visited {
-    color: #0070ff;
+    color: #1BA1E6;
   }
 
   a:active, a:focus, a:hover {
-    color: #0070ff;
+    color: #1BA1E6;
     opacity: .75;
   }
 
@@ -63,26 +63,26 @@
   #post-content a:hover,
   #post-content a:focus,
   #post-content a:visited {
-    color: #005eb9;
+    color: #1BA1E6;
     opacity: 1;
   }
 
   .post-entry .card-body a {
-    color: #0070ff;
+    color: #1AAB8E;
   }
 
   .avatar {
-    background: #444;
+    background: #1AAB8E;
   }
 
   .navbar-link,
   .navbar-link:visited,
   .timeline .timeline-item .timeline-icon.icon-lg {
-    color: #0070ff;
+    color: #1AAB8E;
   }
 
   .navbar-link:hover {
-    color: #0070ff;
+    color: #1AAB8E;
     opacity: .8;
   }
 
@@ -90,15 +90,15 @@
   #disqus_click_btn,
   #disqus-switch-to-direct,
   #disqus-loadmore-button {
-    background: #727e96;
-    border-color: #727e96;
+    background: #1AAB8E;
+    border-color: #1AAB8E;
     color: #fff;
   }
 
   #post-toc a.post-toc-link,
   #post-toc a.post-toc-link:visited,
   .share-menu.menu .menu-item>a {
-    color: #727e96;
+    color: #1AAB8E;
   }
 
   .share-menu.menu .menu-item>a:hover,
@@ -111,6 +111,10 @@
 </style>
 
 <link rel="stylesheet" href="/veripress-theme-suka/static/css/style.min.css">
+
+
+
+
 
 <!-- ### Site Verification ### -->
 
@@ -132,10 +136,10 @@
 
 <!-- ### The Open Graph & Twitter Card Protocol ### -->
 
-<meta property="og:title" content="歸檔: 2018.12 | Demo">
+<meta property="og:title" content="Archive: 2018.12 | Demo">
 <meta property="og:site_name" content="Demo">
 
-<meta property="og:locale" content="zh_TW">
+<meta property="og:locale" content="en_US">
 
 <meta property="og:url" content="https://example.com/archive/2018/12/">
 <meta property="og:image" content="/veripress-theme-suka/static/img/suka-favicon.png">
@@ -150,7 +154,18 @@
 <link rel="canonical" href="https://example.com/archive/2018/12/">
 
 <!-- ### Structured Data ### -->
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/PhilipTrauner/pygments-github-css@master/github.css" />
+
+<style>
+#post-content .highlight pre {
+  background-color: #f6f8fa !important;
+  border-radius: 3px;
+  font-size: 85%;
+  line-height: 1.45;
+  overflow: auto;
+  padding: 16px;
+}
+</style>
   
 </head>
 <body><!-- ## Header ##-->
@@ -160,19 +175,19 @@
     <p class="text-center header-slogan">
         My Slogan
     </p><nav class="navbar-section text-center">
-    <a href="/veripress-theme-suka/" class="navbar-link">首頁</a>
-    <a href="/veripress-theme-suka/archive/" class="navbar-link">歸檔</a><div class="dropdown dropdown-right">
+    <a href="/veripress-theme-suka/" class="navbar-link">Home</a>
+    <a href="/veripress-theme-suka/archive/" class="navbar-link">Archive</a><div class="dropdown dropdown-right">
     <a class="navbar-link dropdown-toggle" tabindex="0">Share</a>
     <ul class="menu share-menu">
 
         <!-- Share Weibo -->
         <li class="menu-item">
-            <a href="http://service.weibo.com/share/share.php?appkey=&title=歸檔: 2018.12 | &url=https://example.com/archive/2018/12/&pic=/veripress-theme-suka/static/img/suka-favicon.png&searchPic=false&style=simple" target="_blank" rel="noopener noreferrer nofollow">Share to Weibo</a>
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=Archive: 2018.12 | &url=https://example.com/archive/2018/12/&pic=/veripress-theme-suka/static/img/suka-favicon.png&searchPic=false&style=simple" target="_blank" rel="noopener noreferrer nofollow">Share to Weibo</a>
         </li>
 
         <!-- Share Twitter -->
         <li class="menu-item">
-            <a href="https://twitter.com/intent/tweet?text=歸檔: 2018.12 | &url=https://example.com/archive/2018/12/&via=Someone" target="_blank" rel="noopener noreferrer nofollow">Share to Twitter</a>
+            <a href="https://twitter.com/intent/tweet?text=Archive: 2018.12 | &url=https://example.com/archive/2018/12/&via=Someone" target="_blank" rel="noopener noreferrer nofollow">Share to Twitter</a>
         </li>
 
         <!-- Share Facebook -->
@@ -187,17 +202,17 @@
 
         <!-- Share LinkedIn -->
         <li class="menu-item">
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://example.com/archive/2018/12/&title=歸檔: 2018.12 | " target="_blank" rel="noopener noreferrer nofollow">Share to LinkedIn</a>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://example.com/archive/2018/12/&title=Archive: 2018.12 | " target="_blank" rel="noopener noreferrer nofollow">Share to LinkedIn</a>
         </li>
 
         <!-- Share QQ -->
         <li class="menu-item">
-            <a href="http://connect.qq.com/widget/shareqq/index.html?site=Demo&title=歸檔: 2018.12 | &summary=Yet%20another%20VeriPress%20blog.&pics=/veripress-theme-suka/static/img/suka-favicon.png&url=https://example.com/archive/2018/12/" target="_blank" rel="noopener noreferrer nofollow">Share to QQ</a>
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=Demo&title=Archive: 2018.12 | &summary=Yet%20another%20VeriPress%20blog.&pics=/veripress-theme-suka/static/img/suka-favicon.png&url=https://example.com/archive/2018/12/" target="_blank" rel="noopener noreferrer nofollow">Share to QQ</a>
         </li>
 
         <!-- Share Telegram -->
         <li class="menu-item">
-            <a href="https://t.me/share/url?url=https://example.com/archive/2018/12/&text=歸檔: 2018.12 | " target="_blank" rel="noopener noreferrer nofollow">Share to Telegram</a>
+            <a href="https://t.me/share/url?url=https://example.com/archive/2018/12/&text=Archive: 2018.12 | " target="_blank" rel="noopener noreferrer nofollow">Share to Telegram</a>
         </li>
 
 
@@ -206,7 +221,7 @@
 </div>
     <a href="/veripress-theme-suka/feed.xml" target="_blank" class="navbar-link">RSS</a>
 </nav>
-</header><div class="container">
+</header><div class="container" style="overflow: hidden;">
   <div class="main-container">
     <main>
 
@@ -220,7 +235,7 @@
             <div class="tile">
               <div class="tile-content">
                 <p class="tile-title">
-                  3 posts in total
+                  5 posts in total
                 </p>
               </div>
             </div>
@@ -240,6 +255,32 @@
               </div>
             </div>
           </div>
+            <div class="timeline-item">
+              <div class="timeline-left">
+                <div class="timeline-icon"></div>
+              </div>
+              <div class="timeline-content">
+                <div class="tile">
+                  <div class="tile-content">
+                    <span class="tile-subtitle text-gray mb-1">12-27</span>
+                    <a href="/veripress-theme-suka/post/2018/12/27/How-to-add-the-search-page/" class="timeline-tile-title ml-1"><span class="tile-title">How to add the search page?</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-left">
+                <div class="timeline-icon"></div>
+              </div>
+              <div class="timeline-content">
+                <div class="tile">
+                  <div class="tile-content">
+                    <span class="tile-subtitle text-gray mb-1">12-27</span>
+                    <a href="/veripress-theme-suka/post/2018/12/27/Markdown-style-demo/" class="timeline-tile-title ml-1"><span class="tile-title">Markdown style demo</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="timeline-item">
               <div class="timeline-left">
                 <div class="timeline-icon"></div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh_TW">
+<html lang="en_US">
 <head>
   
     
@@ -30,7 +30,7 @@
 <meta name="format-detection" content="telephone=no">
 
 <!-- Description -->
-<meta name="description" content="This is a solitude post!">
+<meta name="description" content="<div style="padding-left: 16px; padding-top: 12px;"><p>Solitude post with a YAML header "solitude: true" is a post without explicit link from the index page, it's more like a twitter post; so keep it <strong>SHORT</strong>!</p></div>">
 
 <!-- Keywords . -->
 <meta name="keywords" content="example,demo,suka,veripress,theme,Test">
@@ -51,11 +51,11 @@
   }
 
   a, a:visited {
-    color: #0070ff;
+    color: #1BA1E6;
   }
 
   a:active, a:focus, a:hover {
-    color: #0070ff;
+    color: #1BA1E6;
     opacity: .75;
   }
 
@@ -63,26 +63,26 @@
   #post-content a:hover,
   #post-content a:focus,
   #post-content a:visited {
-    color: #005eb9;
+    color: #1BA1E6;
     opacity: 1;
   }
 
   .post-entry .card-body a {
-    color: #0070ff;
+    color: #1AAB8E;
   }
 
   .avatar {
-    background: #444;
+    background: #1AAB8E;
   }
 
   .navbar-link,
   .navbar-link:visited,
   .timeline .timeline-item .timeline-icon.icon-lg {
-    color: #0070ff;
+    color: #1AAB8E;
   }
 
   .navbar-link:hover {
-    color: #0070ff;
+    color: #1AAB8E;
     opacity: .8;
   }
 
@@ -90,15 +90,15 @@
   #disqus_click_btn,
   #disqus-switch-to-direct,
   #disqus-loadmore-button {
-    background: #727e96;
-    border-color: #727e96;
+    background: #1AAB8E;
+    border-color: #1AAB8E;
     color: #fff;
   }
 
   #post-toc a.post-toc-link,
   #post-toc a.post-toc-link:visited,
   .share-menu.menu .menu-item>a {
-    color: #727e96;
+    color: #1AAB8E;
   }
 
   .share-menu.menu .menu-item>a:hover,
@@ -111,6 +111,10 @@
 </style>
 
 <link rel="stylesheet" href="/veripress-theme-suka/static/css/style.min.css">
+
+
+
+
 
 <!-- ### Site Verification ### -->
 
@@ -135,14 +139,14 @@
 <meta property="og:title" content="Solitude Post | Demo">
 <meta property="og:site_name" content="Demo">
 
-<meta property="og:locale" content="zh_TW">
+<meta property="og:locale" content="en_US">
 
 <meta property="og:url" content="https://example.com/post/2018/12/22/Solitude post/">
-<meta property="og:image" content="https://i1.wp.com/pic4.zhimg.com/v2-dc91624a6eca9ae4e8e102f0a03ffe78.jpg?h=250">
+<meta property="og:image" content="/veripress-theme-suka/static/img/suka-favicon.png">
 
-<meta property="og:description" content="This is a solitude post!">
+<meta property="og:description" content="<div style="padding-left: 16px; padding-top: 12px;"><p>Solitude post with a YAML header "solitude: true" is a post without explicit link from the index page, it's more like a twitter post; so keep it <strong>SHORT</strong>!</p></div>">
 
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
   <meta property="og:type" content="article">
   <meta property="article:published_time" content="2018-12-22T14:35:10">
   <meta property="article:modified_time" content="2018-12-22T14:35:10">
@@ -167,7 +171,7 @@
     "headline": "Solitude Post | Demo",
     "image": {
         "@type": "ImageObject",
-        "url": "https://i1.wp.com/pic4.zhimg.com/v2-dc91624a6eca9ae4e8e102f0a03ffe78.jpg?h=250"
+        "url": "/veripress-theme-suka/static/img/suka-favicon.png"
     },
     "datePublished": "2018-12-22T14:35:10",
     "dateModified": "2018-12-22T14:35:10",
@@ -190,14 +194,25 @@
     },
     "potentialAction": {
         "@type": "SearchAction",
-        "target": "/veripress-theme-suka/?q={search_term_string}",
+        "target": "https://example.com/_search?q={search_term_string}",
         "query-input": "required name=search_term_string"
     },
     "keywords": "example,demo,suka,veripress,theme,Test",
-    "description": "This is a solitude post!"
+    "description": "<div style="padding-left: 16px; padding-top: 12px;"><p>Solitude post with a YAML header "solitude: true" is a post without explicit link from the index page, it's more like a twitter post; so keep it <strong>SHORT</strong>!</p></div>"
 }
 </script>
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/PhilipTrauner/pygments-github-css@master/github.css" />
+
+<style>
+#post-content .highlight pre {
+  background-color: #f6f8fa !important;
+  border-radius: 3px;
+  font-size: 85%;
+  line-height: 1.45;
+  overflow: auto;
+  padding: 16px;
+}
+</style>
   
 </head>
 <body><!-- ## Header ##-->
@@ -207,14 +222,14 @@
     <p class="text-center header-slogan">
         My Slogan
     </p><nav class="navbar-section text-center">
-    <a href="/veripress-theme-suka/" class="navbar-link">首頁</a>
-    <a href="/veripress-theme-suka/archive/" class="navbar-link">歸檔</a><div class="dropdown dropdown-right">
+    <a href="/veripress-theme-suka/" class="navbar-link">Home</a>
+    <a href="/veripress-theme-suka/archive/" class="navbar-link">Archive</a><div class="dropdown dropdown-right">
     <a class="navbar-link dropdown-toggle" tabindex="0">Share</a>
     <ul class="menu share-menu">
 
         <!-- Share Weibo -->
         <li class="menu-item">
-            <a href="http://service.weibo.com/share/share.php?appkey=&title=Solitude Post | &url=https://example.com/post/2018/12/22/Solitude post/&pic=https://i1.wp.com/pic4.zhimg.com/v2-dc91624a6eca9ae4e8e102f0a03ffe78.jpg?h=250&searchPic=false&style=simple" target="_blank" rel="noopener noreferrer nofollow">Share to Weibo</a>
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=Solitude Post | &url=https://example.com/post/2018/12/22/Solitude post/&pic=/veripress-theme-suka/static/img/suka-favicon.png&searchPic=false&style=simple" target="_blank" rel="noopener noreferrer nofollow">Share to Weibo</a>
         </li>
 
         <!-- Share Twitter -->
@@ -239,7 +254,7 @@
 
         <!-- Share QQ -->
         <li class="menu-item">
-            <a href="http://connect.qq.com/widget/shareqq/index.html?site=Demo&title=Solitude Post | &summary=This%20is%20a%20solitude%20post%21&pics=https://i1.wp.com/pic4.zhimg.com/v2-dc91624a6eca9ae4e8e102f0a03ffe78.jpg?h=250&url=https://example.com/post/2018/12/22/Solitude post/" target="_blank" rel="noopener noreferrer nofollow">Share to QQ</a>
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=Demo&title=Solitude Post | &summary=Solitude%20post%20with%20a%20YAML%20header%20%22solitude%3A%20true%22%20is%20a%20post%20without%20explicit%20link%20from%20the%20index%20page%2C%20it%27s%20more%20like%20a%20twitter%20post%3B%20so%20keep%20it%20SHORT%21&pics=/veripress-theme-suka/static/img/suka-favicon.png&url=https://example.com/post/2018/12/22/Solitude post/" target="_blank" rel="noopener noreferrer nofollow">Share to QQ</a>
         </li>
 
         <!-- Share Telegram -->
@@ -257,8 +272,6 @@
 
     <!-- ## Post ## --><div class="post-container">
   <div id="post-card" class="card">
-      <!-- # Post Thumbnail # -->
-      <div class="card-image" style="background-image: url('https://i1.wp.com/pic4.zhimg.com/v2-dc91624a6eca9ae4e8e102f0a03ffe78.jpg?h=250');"></div>
     <div class="card-item-container">
       <div class="card-inner-cell">
         <!-- # Post Header Info # -->
@@ -280,7 +293,7 @@
 <ul class="menu share-menu">
   <!-- Share Weibo -->
   <li class="menu-item">
-    <a href="http://service.weibo.com/share/share.php?appkey=&title=Solitude Post&url=https://example.com/post/2018/12/22/Solitude post/&pic=https://i1.wp.com/pic4.zhimg.com/v2-dc91624a6eca9ae4e8e102f0a03ffe78.jpg?h=250&searchPic=false&style=simple" target="_blank" rel="noopener noreferrer nofollow">Share to Weibo</a>
+    <a href="http://service.weibo.com/share/share.php?appkey=&title=Solitude Post&url=https://example.com/post/2018/12/22/Solitude post/&pic=/veripress-theme-suka/static/img/suka-favicon.png&searchPic=false&style=simple" target="_blank" rel="noopener noreferrer nofollow">Share to Weibo</a>
   </li>
 
   <!-- Share Twitter -->
@@ -305,7 +318,7 @@
 
   <!-- Share QQ -->
   <li class="menu-item">
-    <a href="http://connect.qq.com/widget/shareqq/index.html?site=Demo&title=Solitude Post&summary=This%20is%20a%20solitude%20post%21&pics=https://i1.wp.com/pic4.zhimg.com/v2-dc91624a6eca9ae4e8e102f0a03ffe78.jpg?h=250&url=https://example.com/post/2018/12/22/Solitude post/" target="_blank" rel="noopener noreferrer nofollow"> Share to QQ</a>
+    <a href="http://connect.qq.com/widget/shareqq/index.html?site=Demo&title=Solitude Post&summary=Solitude%20post%20with%20a%20YAML%20header%20%22solitude%3A%20true%22%20is%20a%20post%20without%20explicit%20link%20from%20the%20index%20page%2C%20it%27s%20more%20like%20a%20twitter%20post%3B%20so%20keep%20it%20SHORT%21&pics=/veripress-theme-suka/static/img/suka-favicon.png&url=https://example.com/post/2018/12/22/Solitude post/" target="_blank" rel="noopener noreferrer nofollow"> Share to QQ</a>
   </li>
 
   <!-- Share Telegram -->
@@ -323,7 +336,7 @@
         <div class="card-body">
           
           <article id="post-content">
-            <p>This is a solitude post!</p>
+            <p>Solitude post with a YAML header "solitude: true" is a post without explicit link from the index page, it's more like a twitter post; so keep it <strong>SHORT</strong>!</p>
           </article>
 
 <p class="post-footer-info mb-0 pt-0">Published at&nbsp;<time datetime="2018-12-22T14:35:10" itemprop="datePublished">2018-12-22</time>
