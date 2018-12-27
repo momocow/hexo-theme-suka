@@ -328,3 +328,6 @@ Thanks for content from these sources.
 
 - [https://theme-suka.skk.moe/demo/2018/07/24/markdown-style]()
 - [https://michelf.ca/projects/php-markdown/extra]()
+
+# References
+Source of markdown can be found on [GitHub](https://github.com/momocow/veripress-theme-suka/blob/veripress/test/posts/2018-12-27-Markdown-style-demo.md).
