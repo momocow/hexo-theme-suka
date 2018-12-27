@@ -10,13 +10,20 @@ const TEST_DIR = 'test/themes/suka'
 const CONFIG_PY = 'test/config.py'
 
 function cleanTestTemplates () {
-  return del(`${TEST_DIR}/${TEMPLATES_DIR}/**/*`, {
+  return del([
+    `${TEST_DIR}/${TEMPLATES_DIR}/**`,
+    `!${TEST_DIR}/${TEMPLATES_DIR}`,
+    `!${TEST_DIR}/${TEMPLATES_DIR}/custom`,
+    `!${TEST_DIR}/${TEMPLATES_DIR}/custom/**`
+  ], {
     cwd: __dirname
   })
 }
 
 function cleanTestStatic () {
-  return del(`${TEST_DIR}/${STATIC_DIR}/**/*`, {
+  return del([
+    `${TEST_DIR}/${STATIC_DIR}/**`
+  ], {
     cwd: __dirname
   })
 }
