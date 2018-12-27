@@ -3,7 +3,7 @@ title: How to add the search page?
 created: 2018-12-27 18:03:18
 categories: [Demo]
 tags: [search]
-thumbnail: img/search-page.png
+thumbnail: images/search-page.png
 ---
 
 Search page is only supported if you **use Veripress as the backend**.
