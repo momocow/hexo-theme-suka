@@ -15,7 +15,7 @@
 <meta property="og:url" content="{{ full_url }}">
 <meta property="og:image" content="{{ suka_thumb(entry) or suka_icon }}">
 
-<meta property="og:description" content="{{ suka_desc }}">
+<meta property="og:description" content="{{ suka_desc|striptags }}">
 
 <meta name="twitter:card" content="{{ 'summary_large_image' if suka_thumb(entry) else 'summary' }}">
 

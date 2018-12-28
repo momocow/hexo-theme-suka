@@ -47,7 +47,7 @@
     },
     {%- endif %}
     "keywords": "{{ suka_tags|join(',') }}",
-    "description": "{{ suka_desc }}"
+    "description": "{{ suka_desc|striptags }}"
 }
 </script>
 {%- endif %}
@@ -102,7 +102,7 @@
     },
     {%- endif %}
     "keywords": "{{ suka_tags|join(',') }}",
-    "description": "{{ suka_desc }}"
+    "description": "{{ suka_desc|striptags }}"
 }
 </script>
 {%- endif %}
