@@ -41,12 +41,12 @@ See [configs](CONFIGS.md) for more details.
 
 ## Post headers
 
-| Entry          | Type    | Default                                                                                          | Description                                                        |
-| -------------- | ------- | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------ |
-| `solitude`     | boolean | `False`                                                                                          | Solitude post is a post without explicit link from the index page. |
-| `hide_license` | boolean | `False`                                                                                          | Hide the license for this page if global license is enabled.       |
-| `thumbnail`    | string  | A link to the thumbnail image, which can be located in `/static/` directory or an external link. |
-| `license`      | string  | License text for this page.                                                                      |
+| Entry          | Type    | Default | Description                                                                                      |
+| -------------- | ------- | ------- | ------------------------------------------------------------------------------------------------ |
+| `solitude`     | boolean | `False` | Solitude post is a post without explicit link from the index page.                               |
+| `hide_license` | boolean | `False` | Hide the license for this page if global license is enabled.                                     |
+| `thumbnail`    | string  | `""`    | A link to the thumbnail image, which can be located in `/static/` directory or an external link. |
+| `license`      | string  | `""`    | License text for this page.                                                                      |
 
 ## How to add the search page?
 http://momocow.me/veripress-theme-suka/post/2018/12/27/How-to-add-the-search-page/
