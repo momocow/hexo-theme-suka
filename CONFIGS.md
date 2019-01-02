@@ -99,7 +99,6 @@
 | `SUKA_SNS_SHARE_LINKEDIN`                                    | boolean                         | `True`                       |
 | `SUKA_SNS_SHARE_QQ`                                          | boolean                         | `True`                       |
 | `SUKA_SNS_SHARE_TELEGRAM`                                    | boolean                         | `True`                       |
-<!-- SUKA_QRCODE_POST_SHARE -->
 | `SUKA_VALINE_COUNTER_INDEX_POST_PV_ENABLE`                   | boolean                         | `False`                      |
 | `SUKA_VALINE_COUNTER_INDEX_POST_PV_BEFORE`                   | HTML                            | `None`                       |
 | `SUKA_VALINE_COUNTER_INDEX_POST_PV_AFTER`                    | HTML                            | `None`                       |
@@ -117,6 +116,8 @@
 | `SUKA_POST_SHARE`                                            | boolean                         | `True`                       |
 | `SUKA_POST_LICENSE`                                          | string                          | `None`                       |
 | `SUKA_POST_EXPIRE`                                           | number                          |                              | in days     |
+
+<!-- SUKA_QRCODE_POST_SHARE -->
 
 ## CommentPlugin
 One of
