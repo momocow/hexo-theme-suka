@@ -2,12 +2,50 @@ const gulp = require('gulp')
 const del = require('del')
 const log = require('fancy-log')
 const path = require('path')
+const fs = require('fs')
+const { Writable } = require('stream')
 const { spawn } = require('child_process')
 
 const TEMPLATES_DIR = 'templates'
 const STATIC_DIR = 'static'
 const TEST_DIR = 'test/themes/suka'
 const CONFIG_PY = 'test/config.py'
+const SUKA_CONFIG_FILE = path.join(TEMPLATES_DIR, 'helpers/suka_config.html')
+const CONCLUSION_FILE = 'config.md'
+
+function concludeConfigs () {
+  const conclusion = {}
+
+  /**
+   * @param {string} str
+   */
+  function _writeString (str) {
+    for (let config of str.match(/config\.SUKA_.*?\b/g)) {
+      conclusion[config.slice(7)] = { }
+    }
+  }
+
+  return gulp.src(SUKA_CONFIG_FILE)
+    .pipe(new Writable({
+      objectMode: true,
+      write (chunk, _, cb) {
+        if (chunk.isBuffer()) {
+          _writeString(`${chunk.contents}`)
+        }
+        cb(null)
+      },
+      final (cb) {
+        fs.writeFile(
+          CONCLUSION_FILE,
+          `# Configuration\nEntry | Type | Default\n-|-|-\n` +
+          Object.keys(conclusion)
+            .map(config => `\`${config}\`||`)
+            .join('\n'),
+          cb
+        )
+      }
+    }))
+}
 
 function cleanTestTemplates () {
   return del([
@@ -156,5 +194,6 @@ module.exports = {
   makeTemplates,
   makeStatic,
   dev,
+  conclude: concludeConfigs,
   default: listTask
 }

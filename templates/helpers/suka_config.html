@@ -141,9 +141,9 @@
 {# comment.facebook.NUM_POSTS #}
 {%- set suka_comment_facebook.NUM_POSTS = config.SUKA_COMMENT_FACEBOOK_NUM_POSTS
   if
-    config.SUKA_COMMENT_FACEBOOK_NUM_POSTS is string
+    config.SUKA_COMMENT_FACEBOOK_NUM_POSTS is number
   else
-    None
+    10
 -%}
 
 {# comment.facebook.COLOR_SCHEME #}
@@ -151,7 +151,7 @@
   if
     config.SUKA_COMMENT_FACEBOOK_COLOR_SCHEME is string
   else
-    None
+    'light'
 -%}
 
 {# comment.facebook.ORDER_BY #}
@@ -159,7 +159,7 @@
   if
     config.SUKA_COMMENT_FACEBOOK_ORDER_BY is string
   else
-    None
+    'social'
 -%}
 
 {# comment.gitalk.CLIENT_ID #}
@@ -333,9 +333,9 @@
 {# comment.valine.PAGE_SIZE #}
 {%- set suka_comment_valine.PAGE_SIZE = config.SUKA_COMMENT_VALINE_PAGE_SIZE
   if
-    config.SUKA_COMMENT_VALINE_PAGE_SIZE is string
+    config.SUKA_COMMENT_VALINE_PAGE_SIZE is number
   else
-    None
+    10
 -%}
 
 {# comment.valine.AVATAR #}

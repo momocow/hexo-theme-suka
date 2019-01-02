@@ -4,94 +4,59 @@
 
 Hexo theme: [hexo-theme-suka](https://github.com/SukkaW/hexo-theme-suka)
 
-> 🚧 WIP
+Demo: http://momocow.me/veripress-theme-suka/
+
 
 - [veripress-theme-suka](#veripress-theme-suka)
+  - [Features](#features)
   - [Configuration](#configuration)
-    - [Supported Comment Plugins](#supported-comment-plugins)
   - [Customizable templates](#customizable-templates)
-  - [Development](#development)
-    - [Post header](#post-header)
-    - [Differences against hexo-theme-suka](#differences-against-hexo-theme-suka)
-    - [Additional functions to Veripress](#additional-functions-to-veripress)
-    - [Scripts](#scripts)
-    - [Todo](#todo)
+  - [Post headers](#post-headers)
+  - [How to add the search page?](#how-to-add-the-search-page)
+  - [Differences against hexo-theme-suka](#differences-against-hexo-theme-suka)
+
+## Features
+- Support thumbnail
+- Support solitude post
+- Support sharing pages or posts via several popular social platforms (TG, FB, QQ, etc)
+- Provide `searchbar` layout
+- ~~Provide `gallery` layout~~ 🚧 *(not ported yet)*
 
 ## Configuration
 
-All configurations are done via `config.py`.
+All configurations are done via `config.py` with keys started with `"SUKA_"`.
 
-| Config                         | Default                                                         | Description                                 |
-| ------------------------------ | --------------------------------------------------------------- | ------------------------------------------- |
-| SUKA_COMMENT_USE               | `"disqus"` if `DISQUS_ENABLED` is `True`;<br>otherwise, `None`. | Comment plugins                             |
-| SUKA_COMMENT_DISQUS_SHORT_NAME | `DISQUS_SHORT_NAME` or `None`                                   | Disqus short name                           |
-| SUKA_POST_ENTRY_EXCERPT        | `120`                                                           | Max content for each post in the index page |
-| SUKA_READ_MORE                 | `"Read more"`                                                   | Read-more text                              |
-| SUKA_AVATAR                    | `"/static/img/default_avatar.png"`                              | URL to your avatar                          |
-| SUKA_DATE_FORMAT               | `"%Y-%m-%d"`                                                    | Date format for display                     |
-| SUKA_UIUX_BG_COLOR             | `None`                                                            |
-| SUKA_UIUX_LINK_COLOR           | `None`                                                            |
-| SUKA_UIUX_PRIMARY_COLOR        | `None`                                                            |
-| SUKA_ANALYTICS_BAIDU_SITE_ID   | `None`                                                            |
-| SUKA_ANALYTICS_GOOGLE_SITE_ID  | `None`                                                            |
-| SUKA_ANALYTICS_GTAGS_SITE_ID   | `None`                                                            |
-| SUKA_ANALYTICS_CNZZ_SITE_ID    | `None`                                                            |
-| SUKA_ANALYTICS_TENCENT_SITE_ID | `None`                                                            |
-| SUKA_ANALYTICS_TENCENT_MTA_ID  | `None`                                                            |
-| SUKA_BUSUANZI_ENABLE           | `False`                                                           |
-| SUKA_HANABI_ENABLE             | `False`                                                           |
-
-### Supported Comment Plugins
-Options for `SUKA_COMMENT_USE`
-- `disqus`
-- `disqusjs`
-- `changyan`
-- `gitalk`
-- `gitment`
-- `livere`
-- `valine`
+See [configs](CONFIGS.md) for more details.
 
 ## Customizable templates
+
 - `head.html`
 - `header.html`
 - `footer.html`
 - `foot.html`
 - `nav.html`
+- `i18n/{language}.html`
+  - Custom translation can be **partial**, missing terms are tanslated via built-in i18n files.
+  - If `{language}.html` is not found either in custom or built-in directory, `en_US.html` is used as fallback.
 
-## Development
+## Post headers
 
-### Post header
-- `solitude`
-- `hide_license`
-- `thumbnail`
-- `license`
+| Entry          | Type    | Default                                                                                          | Description                                                        |
+| -------------- | ------- | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| `solitude`     | boolean | `False`                                                                                          | Solitude post is a post without explicit link from the index page. |
+| `hide_license` | boolean | `False`                                                                                          | Hide the license for this page if global license is enabled.       |
+| `thumbnail`    | string  | A link to the thumbnail image, which can be located in `/static/` directory or an external link. |
+| `license`      | string  | License text for this page.                                                                      |
 
-### Differences against hexo-theme-suka
+## How to add the search page?
+http://momocow.me/veripress-theme-suka/post/2018/12/27/How-to-add-the-search-page/
+
+## Differences against hexo-theme-suka
 - Only Atom RSS is supported.
 - QRCode generation is not supported yet.
-- Boolean, `solitude`, in post meta can make a post not explicitly linked from index page.
 - TOC still has some problems porting to Veripress, so not supported yet.
 - Headless posts (posts w/o titles) is not supported since Veripress RSS requires post titles.
 - Changyan THREAD_KEY_TYPE, "id", is not supported.
 - Searching is only supported when Veripress serves as the backend.
-- Use the `searchbar` layout as the template of your custom search page.
-
-### Additional functions to Veripress
-- Post thumbnail.
-- Post description.
-- Gallery page.
-- New meta `hide_license`.
-
-### Scripts
-
-```
-npm run dev
-```
-
-1. Prepare the test folder
-2. Start Veripress preview server
-3. Watch to sync file changes to the test folder.
-4. Watch config.py to restart the server.
-
-### Todo
-- [ ] Support spoiler alert 💥
+- Fix several typos and bugs.
+- Support `solitude` posts.
